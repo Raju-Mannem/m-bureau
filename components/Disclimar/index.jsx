@@ -1,9 +1,9 @@
 import React from 'react'
 
-function index() {
+function Disclimar() {
   return (
-    <div>index</div>
+    <div>Disclimar</div>
   )
 }
 
-export default index
+export default Disclimar

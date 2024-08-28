@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
-min-height:90vh;
-width:95vw; 
+width:100%; 
 `
 export const DBHome = styled.div`
 display:flex;

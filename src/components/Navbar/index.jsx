@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "../../lib/utils";
 import './index.css';
+import 'fontsource-roboto';
 
 export function NavbarDemo() {
   return (
     (<div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-0 border border-slate-300 hover:border-indigo-600 hover:border-2 border-indigo-600/[.55]"/>
+      <Navbar className="top-0 border border-slate-300 hover:border-indigo-600 rounded-b-lg hover:border-2 border-indigo-600/[.55]"/>
     </div>)
   );
 }
@@ -17,9 +18,9 @@ function Navbar({
   const [active, setActive] = useState(null);
   return (
     (<div
-      className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)}>
+      className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)} >
       <Menu setActive={setActive}>
-        <img src="https://magicui.design/icon.png" className="w-10 h-7 self-start" alt="logo" />
+        <img src="/src/assets/ban-logo.png" className="w-15 border h-10 m-0 p-0 " alt="logo" />
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>

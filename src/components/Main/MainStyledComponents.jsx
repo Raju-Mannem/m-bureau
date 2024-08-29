@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import 'fontsource-roboto';
 
 export const HomeContainer = styled.div`
 width:100%; 

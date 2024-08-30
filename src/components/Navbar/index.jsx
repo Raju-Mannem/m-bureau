@@ -3,11 +3,11 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "../../lib/utils";
 import './index.css';
 import 'fontsource-roboto';
-
+import { Link } from "react-router-dom";
 export function NavbarDemo() {
   return (
     (<div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-0 border border-slate-300 hover:border-indigo-600 rounded-b-lg hover:border-2 border-indigo-600/[.55]"/>
+      <Navbar className="top-0  border-slate-300 hover:shadow-lg shadow-blue-500/50 rounded-b-lg "/>
     </div>)
   );
 }
@@ -20,7 +20,14 @@ function Navbar({
     (<div
       className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)} >
       <Menu setActive={setActive}>
-        <img src="/src/assets/ban-logo.png" className="w-15 border h-10 m-0 p-0 " alt="logo" />
+        <img src="/src/assets/ban-logo.png" className="w-1/8 h-12 m-0 p-0 " alt="ban logo" /> 
+        <Link to="/" className="text-black dark:text-white">
+       <MenuItem item="Home" />
+       </Link>
+       <Link to="/about" className="text-black dark:text-white">
+       <MenuItem item="About us" />
+       </Link>
+        <Link to="/services" className="text-black dark:text-white">
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
@@ -29,6 +36,8 @@ function Navbar({
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
         </MenuItem>
+        </Link>
+{/*         
         <MenuItem setActive={setActive} active={active} item="Products">
           <div className="  text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
@@ -52,15 +61,16 @@ function Navbar({
               src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
               description="Respond to government RFPs, RFIs and RFQs 10x faster using AI" />
           </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Pricing">
-          <div className="flex flex-col space-y-4 text-sm">
+        </MenuItem> */}
+        <Link to="/contact" className="text-black dark:text-white">
+        <MenuItem item="Contact" />
+        </Link>
+          {/* <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
             <HoveredLink href="/individual">Individual</HoveredLink>
             <HoveredLink href="/team">Team</HoveredLink>
             <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem>
+          </div> */}
       </Menu>
     </div>)
   );

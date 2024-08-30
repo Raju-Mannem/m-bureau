@@ -5,6 +5,6 @@ export const HomeDiv = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 ` 

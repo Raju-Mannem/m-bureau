@@ -1,12 +1,12 @@
 import React from 'react'
 import { NavbarDemo } from '../Navbar'
 
-function Contact() {
+function Services() {
   return (
     <div>
-      <NavbarDemo />
+        <NavbarDemo />
     </div>
   )
 }
 
-export default Contact
+export default Services

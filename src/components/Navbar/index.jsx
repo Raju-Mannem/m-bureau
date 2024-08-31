@@ -21,12 +21,8 @@ function Navbar({
       className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)} >
       <Menu setActive={setActive}>
         <img src="/src/assets/ban-logo.png" className="w-1/8 h-12 m-0 p-0 " alt="ban logo" /> 
-        <Link to="/" className="text-black dark:text-white">
-       <MenuItem item="Home" />
-       </Link>
-       <Link to="/about" className="text-black dark:text-white">
-       <MenuItem item="About us" />
-       </Link>
+        <Link to="/" className="text-black dark:text-white">Home</Link>
+       <Link to="/about" className="text-black dark:text-white">About us</Link>
         <Link to="/services" className="text-black dark:text-white">
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
@@ -62,9 +58,7 @@ function Navbar({
               description="Respond to government RFPs, RFIs and RFQs 10x faster using AI" />
           </div>
         </MenuItem> */}
-        <Link to="/contact" className="text-black dark:text-white">
-        <MenuItem item="Contact" />
-        </Link>
+        <Link to="/contact" className="text-black dark:text-white">Contact</Link>
           {/* <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
             <HoveredLink href="/individual">Individual</HoveredLink>

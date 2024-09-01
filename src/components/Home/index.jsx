@@ -7,6 +7,7 @@ import { TimelineDemo } from "../TimelineDemo";
 import '@fontsource-variable/noto-sans-jp';
 import '@fontsource-variable/baloo-tammudu-2';
 import '@fontsource/ramaraja';
+import Footer from '../Footer'
 export default function Home() {
   const words = [
     {

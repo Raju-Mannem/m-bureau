@@ -5,7 +5,7 @@ import Disclimar from '../Disclimar'
 import Home from '../Home'
 import About from '../About'
 import Login from '../Login'
-import Services from '../services'
+import Register from '../Register'
 import { HomeContainer} from './MainStyledComponents'
 
 const Main=()=> {
@@ -18,7 +18,7 @@ const Main=()=> {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/disclimar" element={<Disclimar />} />
-        <Route path="/services" element={<Services />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       </HomeContainer>

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "../../lib/utils";
 import './index.css';
-import 'fontsource-roboto';
+import '@fontsource/ramabhadra';
 import { Link } from "react-router-dom";
 import FlickerImages from "./FlickerImages";
+import '@fontsource/ramaraja';
 export function NavbarDemo() {
   return (
     (<div className="relative w-full flex items-center justify-center">
@@ -22,9 +23,9 @@ function Navbar({
       className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)} >
       <Menu setActive={setActive}>
         <FlickerImages />
-        <Link to="/" className="text-black dark:text-white">Home</Link>
-       <Link to="/about" className="text-black dark:text-white">About us</Link>
-        <Link to="/services" className="text-black dark:text-white">
+        <Link to="/" className="text-black dark:text-white">హోమ్ </Link>
+       <Link to="/about" className="text-black dark:text-white">ఎబౌట్ అస్ </Link>
+        <Link to="/register" className="text-black dark:text-white">
         {/* <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
@@ -33,7 +34,7 @@ function Navbar({
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
         </MenuItem> */}
-        Services
+        రిజిస్టర్
         </Link>
 {/*         
         <MenuItem setActive={setActive} active={active} item="Products">
@@ -60,7 +61,7 @@ function Navbar({
               description="Respond to government RFPs, RFIs and RFQs 10x faster using AI" />
           </div>
         </MenuItem> */}
-        <Link to="/contact" className="text-black dark:text-white">Contact</Link>
+        <Link to="/contact" className="text-black dark:text-white">కాంటాక్ట్</Link>
           {/* <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
             <HoveredLink href="/individual">Individual</HoveredLink>

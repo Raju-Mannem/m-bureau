@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
+    <div style={{width: '100vw'}}>
 <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 

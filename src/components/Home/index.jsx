@@ -35,7 +35,6 @@ export default function Home() {
         width:'100vw',
         height:'100%', 
         padding:'0px',
-        margin:'0px', 
         boxSizing:'border-box',
         margin: '0px'}}>
       <div style={{padding: '150px 0 0 0'}} className="relative flex h-[650px] w-screen flex-col items-center justify-center overflow-hidden bg-background">

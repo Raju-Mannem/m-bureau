@@ -4,6 +4,7 @@ import { cn } from "../../lib/utils";
 import './index.css';
 import 'fontsource-roboto';
 import { Link } from "react-router-dom";
+import FlickerImages from "./FlickerImages";
 export function NavbarDemo() {
   return (
     (<div className="relative w-full flex items-center justify-center">
@@ -20,18 +21,19 @@ function Navbar({
     (<div
       className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)} >
       <Menu setActive={setActive}>
-        <img src="/src/assets/ban-logo.png" className="w-1/8 h-12 m-0 p-0 " alt="ban logo" /> 
+        <FlickerImages />
         <Link to="/" className="text-black dark:text-white">Home</Link>
        <Link to="/about" className="text-black dark:text-white">About us</Link>
         <Link to="/services" className="text-black dark:text-white">
-        <MenuItem setActive={setActive} active={active} item="Services">
+        {/* <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
             <HoveredLink href="/interface-design">Interface Design</HoveredLink>
             <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
-        </MenuItem>
+        </MenuItem> */}
+        Services
         </Link>
 {/*         
         <MenuItem setActive={setActive} active={active} item="Products">

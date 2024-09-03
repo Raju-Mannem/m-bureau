@@ -28,7 +28,7 @@ export default function Home() {
     <div >
       <NavbarDemo />
       <div className="flex flex-row justify-center align-center" style={{
-        background:'url(src/assets/toran.png)', 
+        background:'url(https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/iuy9bgkeysiovmf7mgtn)', 
         backgroundSize: 'cover', 
         backgroundRepeat: 'no-repeat', 
         backgroundPosition: 'center 10%',

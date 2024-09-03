@@ -23,8 +23,8 @@ function Navbar({
       className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)} >
       <Menu setActive={setActive}>
         <FlickerImages />
-        <Link to="/" className="text-black dark:text-white">హోమ్ </Link>
-       <Link to="/about" className="text-black dark:text-white">ఎబౌట్ అస్ </Link>
+        <Link to="/" className="text-black dark:text-white">హోమ్ పేజీ</Link>
+       <Link to="/about" className="text-black dark:text-white">మా గురించి</Link>
         <Link to="/register" className="text-black dark:text-white">
         {/* <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
@@ -61,7 +61,7 @@ function Navbar({
               description="Respond to government RFPs, RFIs and RFQs 10x faster using AI" />
           </div>
         </MenuItem> */}
-        <Link to="/contact" className="text-black dark:text-white">కాంటాక్ట్</Link>
+        <Link to="/contact" className="text-black dark:text-white">సంప్రదించండి</Link>
           {/* <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
             <HoveredLink href="/individual">Individual</HoveredLink>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Timeline } from "../ui/timeline";
+import './index.css'
 
 export function TimelineDemo() {
   const data = [
@@ -8,7 +9,7 @@ export function TimelineDemo() {
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
+          మా వివాహ బ్యూరో ద్వారా వివాహం  సులభంగా, సౌకర్యంగా మరియు నమ్మదగినవిగా నిర్వహించబడుతుంది.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img

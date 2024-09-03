@@ -20,6 +20,12 @@ export default {
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
       },
+      screens: {
+        'mobile': '320px',  // => @media (min-width: 320px) { ... }
+        'tablet': '640px',   // => @media (min-width: 640px) { ... }
+        'laptop': '1024px',  // => @media (min-width: 1024px) { ... }
+        'desktop': '1280px', // => @media (min-width: 1280px) { ... }
+      },
       keyframes: {
         grid: {
           "0%": { transform: "translateY(-50%)" },

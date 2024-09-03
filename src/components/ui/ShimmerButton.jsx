@@ -9,7 +9,7 @@ const ShimmerButton = forwardRef(
       shimmerSize = "0.05em",
       shimmerDuration = "3s",
       borderRadius = "100px",
-      background = "rgba(0, 0, 0, 1)",
+      background = "#ff6300",
       className,
       children,
       ...props
@@ -78,6 +78,6 @@ const ShimmerButton = forwardRef(
   }
 );
 
-ShimmerButton.displayName = "ShimmerButton";
+ShimmerButton.displayName = "ఇపుడే సంప్రధించండి";
 
 export default ShimmerButton;

@@ -8,20 +8,17 @@ import Footer from '../Footer'
 export default function Home() {
   const words = [
     {
-      text: "Build",
+      text: "కృష్ణవేణి \u00A0 ",
     },
     {
-      text: "awesome",
+      text: "మేరేజ్ \u00A0 ",
     },
     {
-      text: "apps",
+      text: "బ్యూరో \u00A0",
     },
     {
-      text: "with",
-    },
-    {
-      text: "Aceternity.",
-      className: "text-blue-500 dark:text-blue-500",
+      text: "[ex - సర్పంచ్ ]",
+      className: "text-black-500 dark:text-blue-500",
     },
   ];
   return (
@@ -40,25 +37,23 @@ export default function Home() {
       <div style={{padding: '150px 0 0 0'}} className="relative flex h-[650px] w-screen flex-col items-center justify-center overflow-hidden bg-background">
       <span>
       <div className="flex flex-col items-center justify-center h-[40rem]  ">
-      <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base  ">
-        The road to freedom starts from here
-      </p>
-      <TypewriterEffectSmooth words={words} />
+        <h1 className='text-2xl'>మీ ఇంట వివాహం మా బాధ్యత </h1> 
+      <TypewriterEffectSmooth words={words}/>
       
       <div className="z-10 flex min-h-[10rem] items-center justify-center">
       <ShimmerButton>
         <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-          Shimmer Button
+        ఇపుడే సంప్రధించండి
         </span>
       </ShimmerButton>
     </div>
     </div>
       </span>
       <RetroGrid />
-      <div className='absolute bottom-0 animate-wiggle' style={{alignSelf:'end'}}   >
+      <div className='absolute bottom-0 animate-wiggle mobile:w-44 md:flex' style={{alignSelf:'end'}}>
       <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/psu08sjip80jkzo8i7jw" width="300px" height="200px" alt="banana" />
       </div>
-      <div className='bottom-0 absolute animate-wiggle' style={{alignSelf:'start'}}   >
+      <div className='bottom-0 absolute animate-wiggle mobile:w-44 md:flex' style={{alignSelf:'start'}}   >
       <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/p4ajsijgw2g3vsxree1t" width="300px" height="200px" alt="banana"/>
       </div>
     </div>

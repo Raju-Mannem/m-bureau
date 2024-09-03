@@ -14,12 +14,12 @@ const FlickerImages = () => {
   return (
     <span className="relative w-60 h-12 overflow-hidden">
       <img
-        src="/src/assets/ban-logo.png"
+        src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/txl8atphgllyaiiow4d5"
         alt="First"
         className={`absolute inset-0 w-1/8 h-12 m-0 p-0 transition-opacity duration-800 ${showFirstImage ? 'opacity-100' : 'opacity-0'}`}
       />
       <img
-        src="/src/assets/ban-logo-e.png"
+        src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/xy4pnmommssiuorbghoe"
         alt="Second"
         className={`absolute inset-0 w-1/8 h-12 m-0 p-0 transition-opacity duration-800 ${showFirstImage ? 'opacity-0' : 'opacity-100'}`}
       />

@@ -56,10 +56,10 @@ export default function Home() {
       </span>
       <RetroGrid />
       <div className='absolute bottom-0 animate-wiggle' style={{alignSelf:'end'}}   >
-      <img src="src/assets/banana-r.png" width="300px" height="200px" alt="banana" />
+      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/psu08sjip80jkzo8i7jw" width="300px" height="200px" alt="banana" />
       </div>
       <div className='bottom-0 absolute animate-wiggle' style={{alignSelf:'start'}}   >
-      <img src="src/assets/banana-l.png" width="300px" height="200px" alt="banana"/>
+      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/p4ajsijgw2g3vsxree1t" width="300px" height="200px" alt="banana"/>
       </div>
     </div>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
-import ShimmerButton from "../ui/shimmerButton";
+import ShimmerButton from "../ui/ShimmerButton";
 import RetroGrid from "../ui/RetroGrid";
 import {NavbarDemo} from '../Navbar'
 import { TimelineDemo } from "../TimelineDemo";

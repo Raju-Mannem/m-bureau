@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
+import { Menu} from "../ui/navbar-menu";
 import { cn } from "../../lib/utils";
 import './index.css';
 import '@fontsource/ramabhadra';

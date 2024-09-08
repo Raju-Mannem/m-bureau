@@ -31,7 +31,7 @@ function Navbar({
             <span className="bar"></span>
             <span className="bar"></span>
           </button>
-          <span className={`flex flex-row justify-between items-between w-3/5`} id={`${isMenuOpen ? 'nav-open' : 'nav-close'}`}>
+          <span className={`flex flex-row justify-between items-between w-3/5`} id={`nav-close`}>
         <Link to="/" className="text-black dark:text-white">హోమ్ పేజీ</Link>
        <Link to="/about" className="text-black dark:text-white">మా గురించి</Link>
         <Link to="/register" className="text-black dark:text-white">
@@ -79,6 +79,14 @@ function Navbar({
           </div> */}
           </span>
       </Menu>
+      <span className={`flex flex-row justify-between items-between w-3/5`} id={`${isMenuOpen ? 'nav-open' : 'nav-close'}`}>
+        <Link to="/" className="text-black dark:text-white">హోమ్ పేజీ</Link>
+       <Link to="/about" className="text-black dark:text-white">మా గురించి</Link>
+        <Link to="/register" className="text-black dark:text-white">
+        రిజిస్టర్
+        </Link>
+        <Link to="/contact" className="text-black dark:text-white">సంప్రదించండి</Link>
+          </span>
     </div>)
   );
 }

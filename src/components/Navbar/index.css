@@ -56,6 +56,13 @@
       }
       #nav-open {
         display: block;
+        width: 100%;
+      }
+      #nav-open *{
+        display: block;
+        background: #fff;
+        border-bottom: 1px solid #e4dfdf;
+        padding: 12px 0px;
       }
       #nav-close {
         display: none;

@@ -68,8 +68,11 @@
         border-bottom: 1px solid #e4dfdf;
         padding: 12px 0px;
       }
-      #nav-close {
+      #tab-nav-close {
         display: none;
       }
             
+  }
+  #nav-close {
+    display: none;
   }

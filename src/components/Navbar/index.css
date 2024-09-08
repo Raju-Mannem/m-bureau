@@ -31,7 +31,7 @@
         height: 3px;
         background-color: black; /* Adjust color as needed */
         transition: all 0.3s ease;
-        border-radius: 50%;
+        border-radius: 10px;
       }
       
       /* Position the two lines */

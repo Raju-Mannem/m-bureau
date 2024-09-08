@@ -18,11 +18,20 @@ function Navbar({
   className
 }) {
   const [active, setActive] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     (<div
       className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)} >
       <Menu setActive={setActive}>
         <FlickerImages />
+        <button 
+          className={`relative block lg:hidden text-black dark:text-white ${isMenuOpen ? 'open' : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >    
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
+          <span className={`flex flex-row justify-between items-between w-3/5`} id={`${isMenuOpen ? 'nav-open' : 'nav-close'}`}>
         <Link to="/" className="text-black dark:text-white">హోమ్ పేజీ</Link>
        <Link to="/about" className="text-black dark:text-white">మా గురించి</Link>
         <Link to="/register" className="text-black dark:text-white">
@@ -68,6 +77,7 @@ function Navbar({
             <HoveredLink href="/team">Team</HoveredLink>
             <HoveredLink href="/enterprise">Enterprise</HoveredLink>
           </div> */}
+          </span>
       </Menu>
     </div>)
   );

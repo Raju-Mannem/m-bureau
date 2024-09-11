@@ -43,7 +43,7 @@ function Navbar({
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
         </MenuItem> */}
-         రిజిస్టర్
+         రిజిస్టర్ 
         </Link>
 {/*         
         <MenuItem setActive={setActive} active={active} item="Products">

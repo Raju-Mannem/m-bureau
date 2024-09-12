@@ -27,7 +27,7 @@ function Navbar({
         <button 
           className={`relative block lg:hidden text-black dark:text-white ${isMenuOpen ? 'open' : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >    
+        >
             <span className="bar"></span>
             <span className="bar"></span>
           </button>

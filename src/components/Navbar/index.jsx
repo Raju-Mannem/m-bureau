@@ -13,7 +13,6 @@ export function NavbarDemo() {
     </div>)
   );
 }
-
 function Navbar({
   className
 }) {

@@ -4,6 +4,7 @@ import ShimmerButton from "../ui/ShimmerButton";
 import RetroGrid from "../ui/RetroGrid";
 import {NavbarDemo} from '../Navbar'
 import { TimelineDemo } from "../TimelineDemo";
+import {StickyScrollRevealDemo} from "../StickyScrollDemo";
 import Footer from '../Footer'
 export default function Home() {
   const words = [
@@ -59,6 +60,7 @@ export default function Home() {
     </div>
     </div>
     <TimelineDemo />
+    <StickyScrollRevealDemo />
     <Footer />
     </div>
   )

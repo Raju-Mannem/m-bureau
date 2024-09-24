@@ -4,7 +4,8 @@ import ShimmerButton from "../ui/ShimmerButton";
 import RetroGrid from "../ui/RetroGrid";
 import {NavbarDemo} from '../Navbar'
 import { TimelineDemo } from "../TimelineDemo";
-import {StickyScrollRevealDemo} from "../StickyScrollDemo";
+import Hero1 from "../Heros";
+import Hero2 from "../Heros/Hero2";
 import Footer from '../Footer'
 export default function Home() {
   const words = [
@@ -51,16 +52,17 @@ export default function Home() {
     </div>
       </span>
       <RetroGrid />
-      <div className='absolute bottom-0 animate-wiggle mobile:w-44 md:flex' style={{alignSelf:'end'}}>
+      <div className='absolute bottom-0 animate-wiggle md:flex' style={{alignSelf:'end'}}>
       <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/psu08sjip80jkzo8i7jw" width="300px" height="200px" alt="banana" />
       </div>
-      <div className='bottom-0 absolute animate-wiggle mobile:w-44 md:flex' style={{alignSelf:'start'}}   >
+      <div className='bottom-0 absolute animate-wiggle md:flex' style={{alignSelf:'start'}}   >
       <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/p4ajsijgw2g3vsxree1t" width="300px" height="200px" alt="banana"/>
       </div>
     </div>
     </div>
+    <Hero1 />
+    <Hero2 />
     <TimelineDemo />
-    <StickyScrollRevealDemo />
     <Footer />
     </div>
   )

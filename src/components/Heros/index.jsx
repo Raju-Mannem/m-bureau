@@ -21,14 +21,14 @@ function Hero1() {
 
   return (
     <div ref={ref}>
-      <section>
+      <section className='border'>
         <div className="mx-auto max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             <motion.div
               className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full"
               initial={{ y: 60, opacity: 0 }}
               animate={isVisible ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1.5, ease: 'linear' }}
             >
               <img
                 alt=""
@@ -38,18 +38,33 @@ function Hero1() {
             </motion.div>
 
             <div className="lg:py-24">
-              <h2 className="text-3xl font-bold sm:text-4xl">Grow your audience</h2>
-              <p className="mt-4 text-gray-600">
+              <motion.h2
+                className="text-3xl font-bold sm:text-4xl"
+                initial={{ y: 20, opacity: 0 }}
+                animate={isVisible ? { y: 0, opacity: 1 } : {}}
+                transition={{ duration: 0.5, ease: 'linear' }}
+              >
+                Grow your audience
+              </motion.h2>
+              <motion.p
+                className="mt-4 text-gray-600"
+                initial={{ y: 20, opacity: 0 }}
+                animate={isVisible ? { y: 0, opacity: 1 } : {}}
+                transition={{ duration: 0.5, ease: 'linear' }}
+              >
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis
                 eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius
                 quidem quam repellat.
-              </p>
-              <a
+              </motion.p>
+              <motion.a
                 href="#"
                 className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                initial={{ y: 20, opacity: 0 }}
+                animate={isVisible ? { y: 0, opacity: 1 } : {}}
+                transition={{ duration: 0.5, ease: 'linear' }}
               >
                 Get Started Today
-              </a>
+              </motion.a>
             </div>
           </div>
         </div>

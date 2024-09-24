@@ -26,9 +26,9 @@ const Footer = () => {
 
       <motion.footer
         className="relative bg-blueGray-200 pt-8 pb-6"
-        initial={{ x: -40, opacity: 0 }}
-        animate={isVisible ? { x: 0, opacity: 1 } : {}}
-        transition={{ duration: 1.5 }}
+        initial={{ y: 40, opacity: 0 }}
+        animate={isVisible ? { y: 0, opacity: 1 } : {}}
+        transition={{ duration: 1.5, ease: 'linear' }}
       >
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-left lg:text-left">
@@ -78,7 +78,7 @@ const Footer = () => {
                       <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile">MIT License</a>
                     </li>
                     <li>
-                      <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://creative-tim.com/terms?ref=njs-profile">Terms & Conditions</a>
+                      <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://creative-tim.com/terms?ref=njs-profile">Terms &amp; Conditions</a>
                     </li>
                     <li>
                       <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://creative-tim.com/privacy?ref=njs-profile">Privacy Policy</a>
@@ -95,7 +95,8 @@ const Footer = () => {
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-blueGray-500 font-semibold py-1">
-                Copyright © <span id="get-current-year">2021</span><a href="https://www.creative-tim.com/product/notus-js" className="text-blueGray-500 hover:text-gray-800" target="_blank"> Notus JS by</a>
+                Copyright © <span id="get-current-year">2021</span>
+                <a href="https://www.creative-tim.com/product/notus-js" className="text-blueGray-500 hover:text-gray-800" target="_blank"> Notus JS by</a>
                 <a href="https://www.creative-tim.com?ref=njs-profile" className="text-blueGray-500 hover:text-blueGray-800">Creative Tim</a>.
               </div>
             </div>
@@ -104,6 +105,6 @@ const Footer = () => {
       </motion.footer>
     </div>
   );
-};
+}
 
 export default Footer;

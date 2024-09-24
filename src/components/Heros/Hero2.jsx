@@ -40,17 +40,17 @@ function Hero2() {
             <div className="lg:py-24">
               <motion.h2
                 className="text-3xl font-bold sm:text-4xl"
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 60, opacity: 0 }}
                 animate={isVisible ? { y: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.5, ease: 'linear' }}
+                transition={{ duration: 2, ease: 'linear' }}
               >
                 Grow your audience
               </motion.h2>
               <motion.p
                 className="mt-4 text-gray-600"
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 60, opacity: 0 }}
                 animate={isVisible ? { y: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.5, ease: 'linear' }}
+                transition={{ duration: 2, ease: 'linear' }}
               >
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis
                 eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius
@@ -59,9 +59,9 @@ function Hero2() {
               <motion.a
                 href="#"
                 className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 60, opacity: 0 }}
                 animate={isVisible ? { y: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.5, ease: 'linear' }}
+                transition={{ duration: 2, ease: 'linear' }}
               >
                 Get Started Today
               </motion.a>

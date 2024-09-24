@@ -28,7 +28,7 @@ const Footer = () => {
         className="relative bg-blueGray-200 pt-8 pb-6"
         initial={{ x: -40, opacity: 0 }}
         animate={isVisible ? { x: 0, opacity: 1 } : {}}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.5 }}
       >
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-left lg:text-left">

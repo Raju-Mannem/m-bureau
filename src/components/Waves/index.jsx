@@ -2,8 +2,9 @@ import React from 'react'
 import './index.css'
 function waves() {  
   return (
-    <div style={{width: '100vw'}}>      
-    <section className="gradient-pp w-100 vh-100">
+    <div style={{width: '100vw', zIndex: '60', position: 'relative', top: '-90px',
+    }}>      
+    <section className="gradient-pp w-100 vh-100 z-60">
     <div className="position-absolute w-100 bottom-0">
       <svg
         className="waves"

@@ -3,9 +3,11 @@ import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import ShimmerButton from "../ui/ShimmerButton";
 import RetroGrid from "../ui/RetroGrid";
 import {NavbarDemo} from '../Navbar'
-import { TimelineDemo } from "../TimelineDemo";
 import Hero1 from "../Heros";
 import Hero2 from "../Heros/Hero2";
+import Hero3 from "../Heros/Hero3";
+import Stats from "../Stats";
+import Testimonals from "../Testimonals";
 import Footer from '../Footer'
 export default function Home() {
   const words = [
@@ -35,7 +37,7 @@ export default function Home() {
         height:'100%', 
         padding:'0px',
         boxSizing:'border-box',
-        margin: '0px'}}>
+        margin: '4% 0px'}}>
       <div style={{padding: '150px 0 0 0'}} className="relative flex h-[650px] w-screen flex-col items-center justify-center overflow-hidden bg-background">
       <span>
       <div className="flex flex-col items-center justify-center h-[40rem]  ">
@@ -52,17 +54,19 @@ export default function Home() {
     </div>
       </span>
       <RetroGrid />
-      <div className='absolute bottom-0 animate-wiggle md:flex' style={{alignSelf:'end'}}>
+      <div className='absolute bottom-0 animate-wiggle md:flex' style={{alignSelf:'end', zIndex:'12'}}>
       <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/psu08sjip80jkzo8i7jw" width="300px" height="200px" alt="banana" />
       </div>
-      <div className='bottom-0 absolute animate-wiggle md:flex' style={{alignSelf:'start'}}   >
+      <div className='bottom-0 absolute animate-wiggle md:flex' style={{alignSelf:'start', zIndex:'10'}}>
       <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/p4ajsijgw2g3vsxree1t" width="300px" height="200px" alt="banana"/>
       </div>
     </div>
     </div>
     <Hero1 />
     <Hero2 />
-    <TimelineDemo />
+    <Hero3 />
+    <Stats />
+    <Testimonals />
     <Footer />
     </div>
   )

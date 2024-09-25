@@ -21,7 +21,9 @@ function Navbar({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     (<div
-      className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)} >
+      className={cn("fixed top-10 inset-x-0 min-w-2xl mx-auto z-50", className)} 
+      style={{zIndex:'100'}}
+      >
       <Menu setActive={setActive} id="nav-menu">
         <FlickerImages />
         <button 

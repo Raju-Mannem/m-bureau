@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import Waves from '../Waves';
-function Hero1() {
+function Hero3() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -21,7 +20,6 @@ function Hero1() {
 
   return (
     <div ref={ref}>
-      <Waves />
       <motion.section
         className='border-b-2'
         initial={{ y: 60, opacity: 0 }}
@@ -33,7 +31,7 @@ function Hero1() {
             <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
               <img
                 alt=""
-                src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/ecg2rsekjf9pnpeqakbk"
+                src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/mfaep9ton450b8nm5b5z"
                 className="absolute inset-0 h-full w-full object-contain"
               />
             </div>
@@ -61,4 +59,4 @@ function Hero1() {
   );
 }
 
-export default Hero1;
+export default Hero3;

@@ -58,12 +58,21 @@
       #nav-open {
         display: block;
         width: 100%;
+        transition: all 0.5s ease;
       }
-      #nav-open *{
+      #nav-open .nav-link{
         display: block;
         background: #fff;
         border-bottom: 1px solid #e4dfdf;
         padding: 12px 0px;
+        font-size: 1rem;
+      }
+      #nav-open .nav-link:hover{
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+      #nav-open .nav-link *{
+        margin: 0px 5px;
       }
       #tab-nav-close {
         display: none;
@@ -75,4 +84,9 @@
   }
   button:focus{
     outline-offset: -10px;
+  }
+
+  .desknav-link:hover{
+    transition: all 0.3s ease;
+    transform: scale( 1.2);
   }

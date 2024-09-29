@@ -23,12 +23,11 @@ function Hero1() {
     <div ref={ref}>
       <Waves />
       <motion.section
-        className='border-b-2'
-        initial={{ y: 60, opacity: 0 }}
-        animate={isVisible ? { y: 0, opacity: 1 } : {}}
+        initial={{ y: 80, opacity: 0 }}
+        animate={isVisible ? { y: -20, opacity: 1 } : {}}
         transition={{ duration: 2, ease: 'linear' }}
       >
-        <div className="mx-auto max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8">
+        <div className="mx-auto my-16 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg">
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 lg:py-8">
             <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
               <img

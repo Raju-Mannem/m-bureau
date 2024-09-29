@@ -51,7 +51,7 @@ export const Menu = ({ setActive, children }) => {
     <nav
       style={{backgroundImage: 'url(https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/sdgbrc5o5fbdddco3vux), linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center -3%', boxShadow: '0 20px 30px -10px rgba(0, 0, 0, 0.3)'}}
       onMouseLeave={() => setActive(null)}
-      className="relative border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center items-center space-x-14 px-3 pt-3"
+      className="relative border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center items-center space-x-14 pt-4 pb-1"
     >
       {children}
     </nav>

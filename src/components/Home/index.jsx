@@ -9,6 +9,7 @@ import Hero3 from "../Heros/Hero3";
 import Stats from "../Stats";
 import Testimonals from "../Testimonals";
 import Footer from '../Footer'
+import { Link } from 'react-router-dom';
 export default function Home() {
   const words = [
     {
@@ -41,15 +42,17 @@ export default function Home() {
       <div style={{padding: '150px 0 0 0'}} className="relative flex h-[650px] w-screen flex-col items-center justify-center overflow-hidden bg-background">
       <span>
       <div className="flex flex-col items-center justify-center h-[40rem]  ">
-        <h1 className='text-2xl'>మీ ఇంట వివాహం మా బాధ్యత </h1> 
+        <h1 className='sm:text-xl text-2xl'>మీ ఇంట వివాహం మా బాధ్యత </h1> 
       <TypewriterEffectSmooth words={words}/>
       
       <div className="z-10 flex min-h-[10rem] items-center justify-center">
+       <Link to='/contact'>
       <ShimmerButton>
         <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
         ఇపుడే సంప్రధించండి
         </span>
       </ShimmerButton>
+      </Link>
     </div>
     </div>
       </span>

@@ -85,7 +85,12 @@
   button:focus{
     outline-offset: -10px;
   }
-
+  .desknav-link{
+    color: #00bf63;
+  }
+  .desknav-link:focus{
+    outline: none;
+  }
   .desknav-link:hover{
     transition: all 0.3s ease;
     transform: scale( 1.2);

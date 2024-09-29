@@ -6,12 +6,12 @@ display:inline-block;
 margin-right:5px;
 scale:0.8;
 `
-export const AboutIcon = styled(HiOutlineUsers)`
+export const AboutIcon = styled(HiOutlineIdentification)`
 display:inline-block;
 margin-right:5px;
-scale:0.7;
+scale:1;
 `
-export const RegisterIcon = styled(HiOutlineIdentification)`
+export const RegisterIcon = styled(HiOutlineUsers)`
 display:inline-block;
 margin-right:5px;
 scale:0.9;

@@ -21,7 +21,7 @@ export default function Home() {
       text: "బ్యూరో \u00A0",
     },
     {
-      text: "[ex - సర్పంచ్ ]",
+      text: "(మాజీ సర్పంచ్)",
       className: "text-black-500 dark:text-blue-500",
     },
   ];
@@ -29,7 +29,7 @@ export default function Home() {
     <div >
       <NavbarDemo />
       <div className="flex flex-row justify-center align-center" style={{
-        background:'url(https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/iuy9bgkeysiovmf7mgtn)', 
+        background:'url(https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/alvqjzpslu3gd6k6jmqc)', 
         backgroundSize: 'cover', 
         backgroundRepeat: 'no-repeat', 
         backgroundPosition: 'center 10%',
@@ -54,11 +54,11 @@ export default function Home() {
     </div>
       </span>
       <RetroGrid />
-      <div className='absolute bottom-0 animate-wiggle md:flex' style={{alignSelf:'end', zIndex:'12'}}>
-      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/psu08sjip80jkzo8i7jw" width="300px" height="200px" alt="banana" />
+      <div className='absolute bottom-0 animate-wiggle md:flex' style={{alignSelf:'end', zIndex:'12', width: '20%', height: '20%'}}>
+      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/psu08sjip80jkzo8i7jw" alt="banana" className='self-end'/>
       </div>
-      <div className='bottom-0 absolute animate-wiggle md:flex' style={{alignSelf:'start', zIndex:'10'}}>
-      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/p4ajsijgw2g3vsxree1t" width="300px" height="200px" alt="banana"/>
+      <div className='bottom-0 absolute animate-wiggle md:flex' style={{alignSelf:'start', zIndex:'10', width: '20%', height: '40%'}}>
+      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/p4ajsijgw2g3vsxree1t" alt="banana" className='self-start'/>
       </div>
     </div>
     </div>

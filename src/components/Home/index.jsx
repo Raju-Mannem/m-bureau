@@ -54,11 +54,11 @@ export default function Home() {
     </div>
       </span>
       <RetroGrid />
-      <div className='absolute bottom-0 animate-wiggle md:flex' style={{alignSelf:'end', zIndex:'12', width: '20%', height: '20%'}}>
-      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/psu08sjip80jkzo8i7jw" alt="banana" className='self-end'/>
+      <div className='absolute bottom-0 animate-wiggle md:flex' style={{alignSelf:'end', zIndex:'12', width: '20%', height: '40%'}}>
+      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/psu08sjip80jkzo8i7jw" alt="banana" className=''/>
       </div>
-      <div className='bottom-0 absolute animate-wiggle md:flex' style={{alignSelf:'start', zIndex:'10', width: '20%', height: '40%'}}>
-      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/p4ajsijgw2g3vsxree1t" alt="banana" className='self-start'/>
+      <div className='absolute bottom-0 animate-wiggle md:flex' style={{alignSelf:'start', zIndex:'10', width: '20%', height: '40%'}}>
+      <img src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/p4ajsijgw2g3vsxree1t" alt="banana" className=''/>
       </div>
     </div>
     </div>

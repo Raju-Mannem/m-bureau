@@ -20,6 +20,26 @@ export default {
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
       },
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'white': '#ffffff',
+        'purple': '#3f3cbb',
+        'midnight': '#121063',
+        'metal': '#565584',
+        'tahiti': '#3ab7bf',
+        'silver': '#ecebff',
+        'bubble-gum': '#ff77e9',
+        'bermuda': '#78dcca',
+        'bodybackground': '#FFFFF0',
+        'header': '#A52A2A',
+        'footer': '#FFA500',
+        'maintext': '#A52A2A',
+        'headings': '#FFD700',
+        'btnbackground': '#FFA500',
+        'btntext': '#FFD700',
+        'borders': '#FFD700'
+      },
       screens: {
         'mobile': '320px',  // => @media (min-width: 320px) { ... }
         'tablet': '640px',   // => @media (min-width: 640px) { ... }

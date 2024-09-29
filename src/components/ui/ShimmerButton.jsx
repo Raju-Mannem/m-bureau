@@ -9,7 +9,7 @@ const ShimmerButton = forwardRef(
       shimmerSize = "0.05em",
       shimmerDuration = "3s",
       borderRadius = "100px",
-      background = "#ff6300",
+      background = "#00bf63",
       className,
       children,
       ...props
@@ -27,7 +27,7 @@ const ShimmerButton = forwardRef(
           "--bg": background,
         }}
         className={cn(
-          "group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-white/10 px-6 py-3 text-white [background:var(--bg)] [border-radius:var(--radius)] dark:text-black",
+          "group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-white/10 px-6 w-[100%] h-[30%] sm:w-full sm:h-fit py-3 text-white [background:var(--bg)] [border-radius:var(--radius)] dark:text-black",
           "transform-gpu transition-transform duration-300 ease-in-out active:translate-y-[1px]",
           className
         )}

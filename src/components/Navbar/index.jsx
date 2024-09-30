@@ -29,7 +29,7 @@ function Navbar({
       <Menu setActive={setActive} id="nav-menu" >
         <FlickerImages />
         <button 
-          className={`relative block lg:hidden  ${isMenuOpen ? 'open' : ''}`}
+          className={`relative block lg:hidden nav-btn ${isMenuOpen ? 'open' : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
             <span className="bar"></span>

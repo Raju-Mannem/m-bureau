@@ -12,7 +12,7 @@ const FlickerImages = () => {
   }, []);
 
   return (
-    <span className="relative w-60 h-12 overflow-hidden">
+    <span className="relative w-20 h-12 overflow-hidden">
       <img
         src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/txl8atphgllyaiiow4d5"
         alt="First"

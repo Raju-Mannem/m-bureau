@@ -16,32 +16,38 @@
     }
   }
   @media (max-width: 768px) {
-    button {
+    .nav-btn {
         background: none;
         border: none;
         cursor: pointer;
         position: relative;
-        width: 30px;
-        height: 20px;
+        width: 40px;
+        height: 30px;
+        border: 2px solid #00bf63;
+        border-radius: 50%;
+        overflow: hidden;
       }
     .bar {
         display: block;
         position: absolute;
-        width: 30px; /* Should match button width */
+        width: 70%; /* Should match button width */
         height: 3px;
-        background-color: black; /* Adjust color as needed */
+        margin: 0 15%;
+        background-color: #00bf63; /* Adjust color as needed */
         transition: all 0.5s ease;
         border-radius: 10px;
-      }
-      
+      }      
       /* Position the two lines */
       .bar:nth-child(1) {
-        top: 0;
+        top: 30%;
       }
       
       .bar:nth-child(2) {
-        top: 50%;
+        top: 70%;
         transform: translateY(-50%);
+      }
+      .nav-btn:focus{
+        outline: none;
       }
       
       /* Animation for the open state */

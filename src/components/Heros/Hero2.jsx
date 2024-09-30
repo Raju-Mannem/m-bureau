@@ -27,7 +27,7 @@ function Hero2() {
         transition={{ duration: 2, ease: 'linear' }}
       >
         <div className="mx-auto my-16 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg
-        bg-[url('https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/kkehiny6cnsfxda2byzk')]
+        bg-[url('https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/evbsmlx59bl8dwpn9fi9')]
         bg-no-repeat
         bg-cover
         ">
@@ -41,7 +41,7 @@ function Hero2() {
             </div>
 
             <div className="lg:py-24 sm:px-12">
-              <h2 className="text-3xl font-bold sm:text-4xl">
+              <h2 className="text-xl font-bold sm:text-4xl">
                 Grow your audience
               </h2>
               <p className="mt-4 text-gray-600">

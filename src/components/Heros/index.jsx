@@ -42,7 +42,7 @@ function Hero1() {
             </div>
 
             <div className="lg:py-24 sm:px-12">
-              <h2 className="text-3xl font-bold bg-green-400 text-white rounded-lg w-fit px-2 py-1 sm:text-4xl">
+              <h2 className="text-2xl font-bold bg-green-400 text-white rounded-lg w-fit px-4 py-1 sm:text-4xl">
                 Grow your audience
               </h2>
               <p className="mt-4 text-gray-600">

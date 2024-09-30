@@ -22,7 +22,7 @@
         cursor: pointer;
         position: relative;
         width: 40px;
-        height: 30px;
+        height: 40px;
         border: 2px solid #00bf63;
         border-radius: 50%;
         overflow: hidden;
@@ -39,11 +39,11 @@
       }      
       /* Position the two lines */
       .bar:nth-child(1) {
-        top: 30%;
+        top: 40%;
       }
       
       .bar:nth-child(2) {
-        top: 70%;
+        top: 60%;
         transform: translateY(-50%);
       }
       .nav-btn:focus{

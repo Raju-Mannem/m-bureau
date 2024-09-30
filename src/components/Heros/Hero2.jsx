@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import '@fontsource/ramaraja';
+
 
 function Hero2() {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,20 +43,13 @@ function Hero2() {
             </div>
 
             <div className="lg:py-24 sm:px-12">
-              <h2 className="text-xl font-bold sm:text-4xl">
-                Grow your audience
+            <h2 className="text-xl font-bold bg-green-400 text-white rounded-lg w-fit px-4 py-1 sm:text-4xl">
+            భగవంతుని ఆశీర్వాదం
               </h2>
-              <p className="mt-4 text-gray-600">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis
-                eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius
-                quidem quam repellat.
+              <p className="mt-4 text-gray-600 font-bold text-left leading-9">
+              హిందూ సంప్రదాయంలో, వివాహం పరస్పర ప్రేమ, గౌరవం, మరియు భగవంతుని ఆశీర్వాదంతో నడిచే బంధం. 
+              ఈ పవిత్ర బంధంలో మీ కోసం దోహదం చేయడానికి మేము సిద్ధంగా ఉన్నాము.
               </p>
-              <a
-                href="#"
-                className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
-              >
-                Get Started Today
-              </a>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 function Stats() {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,48 +23,66 @@ function Stats() {
       <motion.section
         initial={{ y: 80, opacity: 0 }}
         animate={isVisible ? { y: -20, opacity: 1 } : {}}
-        transition={{ duration: 2, ease: 'linear' }}
+        transition={{ duration: 2, ease: "linear" }}
       >
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-12 lg:px-16">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Trusted by eCommerce Businesses</h2>
+        <div class="mx-auto max-w-screen-xl px-4 py-16 
+        bg-[url('https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/qwwdgikizxdpxq3ggdqi')]
+        bg-no-repeat
+        bg-cover
+         sm:px-6 sm:py-12 lg:px-8">
+          <div class="mx-auto max-w-3xl text-center ">
+            <h2 class="text-3xl font-bold text-gray-600 sm:text-2xl">
+            మీ కలలు నిజం చేయడానికి ఇక్కడ ఉన్నాము
+            </h2>
 
-          <p className="mt-4 text-gray-500 sm:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores laborum labore
-            provident impedit esse recusandae facere libero harum sequi.
-          </p>
+            <p class="mt-4 text-gray-500 sm:text-xl">
+            ఇండియా, అమెరికా, కెనడా, ఇంగ్లండ్, ఆస్ట్రేలియా, ఏ ధేశం లో వారికైనా సమంధాలు చూడబడును.
+
+            </p>
+          </div>
+
+          <dl class="mg-6 grid lg:grid-cols-4 gap-4 divide-y divide-gray-100 sm:mt-8 sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+            <div class="flex flex-col px-4 py-8 text-center">
+              <dt class="order-last text-lg font-medium text-[#00bf63]">
+              విజయవంతమైన వివాహాలు
+              </dt>
+
+              <dd class="text-2xl font-extrabold text-[#00bf63] md:text-5xl">
+                50+
+              </dd>
+            </div>
+
+            <div class="flex flex-col px-4 py-8 text-center">
+              <dt class="order-last text-lg font-medium text-[#00bf63]">
+              ఇండియన్  సంబందాలు 
+              </dt>
+
+              <dd class="text-2xl font-extrabold text-[#00bf63] md:text-5xl">
+              70+
+              </dd>
+            </div>
+
+            <div class="flex flex-col px-4 py-8 text-center">
+              <dt class="order-last text-lg font-medium text-[#00bf63]">
+                ఇతర ధేశాలు
+              </dt>
+
+              <dd class="text-2xl font-extrabold text-[#00bf63] md:text-5xl">
+                90%
+              </dd>
+            </div>
+
+            <div class="flex flex-col px-4 py-8 text-center">
+              <dt class="order-last text-lg font-medium text-[#00bf63]">
+                సంతృప్తి మరియు విశ్వాసం
+              </dt>
+
+              <dd class="text-2xl font-extrabold text-[#00bf63] md:text-5xl">
+                86k
+              </dd>
+            </div>
+          </dl>
         </div>
-
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="flex flex-col rounded-lg bg-zinc-200 px-4 py-8 text-center">
-            <dl>
-              <dt className="order-last text-lg font-medium text-gray-500">Total Sales</dt>
-              <dd className="text-4xl font-extrabold text-white md:text-5xl">$4.8m</dd>
-            </dl>
-          </div>
-
-          <div className="flex flex-col rounded-lg bg-zinc-200 px-4 py-8 text-center">
-            <dl>
-              <dt className="order-last text-lg font-medium text-gray-500">Official Addons</dt>
-              <dd className="text-4xl font-extrabold text-white md:text-5xl">24</dd>
-            </dl>
-          </div>
-
-          <div className="flex flex-col rounded-lg bg-zinc-200 px-4 py-8 text-center">
-            <dl>
-              <dt className="order-last text-lg font-medium text-gray-500">Total Addons</dt>
-              <dd className="text-4xl font-extrabold text-white md:text-5xl">86</dd>
-            </dl>
-          </div>
-
-          <div className="flex flex-col rounded-lg bg-zinc-200 px-4 py-8 text-center">
-            <dl>
-              <dt className="order-last text-lg font-medium text-gray-500">Downloads</dt>
-              <dd className="text-4xl font-extrabold text-white md:text-5xl">86k</dd>
-            </dl>
-          </div>
-        </div>
-      </div>
       </motion.section>
     </div>
   );

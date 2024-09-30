@@ -43,12 +43,11 @@ function Hero1() {
 
             <div className="lg:py-24 sm:px-12">
               <h2 className="text-xl font-bold bg-green-400 text-white rounded-lg w-fit px-4 py-1 sm:text-4xl">
-                Grow your audience
+              వివాహం మరియు సంప్రదాయాలు
               </h2>
-              <p className="mt-4 text-gray-600">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis
-                eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius
-                quidem quam repellat.
+              <p className="mt-4 text-gray-600 font-bold text-left leading-9">
+              మా వివాహ సేవలు, హిందూ సంప్రదాయాలకు అనుగుణంగా ప్రత్యేకంగా రూపొందించబడ్డాయి. 
+              మేము మీ జీవిత భాగస్వామిని కనుగొనడంలో మీకు అంకితబద్ధతతో సహాయం చేస్తాము."
               </p>
             </div>
           </div>

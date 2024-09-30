@@ -27,18 +27,22 @@ function Hero1() {
         animate={isVisible ? { y: -20, opacity: 1 } : {}}
         transition={{ duration: 2, ease: 'linear' }}
       >
-        <div className="mx-auto my-16 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg">
+        <div className="mx-auto my-16 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg
+        bg-[url('https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/kkehiny6cnsfxda2byzk')]
+        bg-no-repeat
+        bg-cover
+        ">
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 lg:py-8">
             <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
               <img
-                alt=""
+                alt="krishnaveni marriages"
                 src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/ecg2rsekjf9pnpeqakbk"
                 className="absolute inset-0 h-full w-full object-contain"
               />
             </div>
 
             <div className="lg:py-24 sm:px-12">
-              <h2 className="text-3xl font-bold sm:text-4xl">
+              <h2 className="text-3xl font-bold bg-green-400 text-white rounded-lg w-fit px-2 py-1 sm:text-4xl">
                 Grow your audience
               </h2>
               <p className="mt-4 text-gray-600">
@@ -46,12 +50,6 @@ function Hero1() {
                 eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius
                 quidem quam repellat.
               </p>
-              <a
-                href="#"
-                className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
-              >
-                Get Started Today
-              </a>
             </div>
           </div>
         </div>

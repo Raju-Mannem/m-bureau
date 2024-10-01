@@ -7,7 +7,7 @@ import Hero1 from "../Heros";
 import Hero2 from "../Heros/Hero2";
 import Hero3 from "../Heros/Hero3";
 import Stats from "../Stats";
-import Testimonals from "../Testimonals";
+import Faq from "../Faq";
 import Footer from '../Footer'
 import { Link } from 'react-router-dom';
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
     },
   ];
   return (
-    <div >
+    <div>
       <NavbarDemo />
       <div className="flex flex-row justify-center align-center" style={{
         background:'url(https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/alvqjzpslu3gd6k6jmqc)', 
@@ -70,7 +70,7 @@ export default function Home() {
     <Hero2 />
     <Hero3 />
     <Stats />
-    <Testimonals />
+    <Faq />
     <Footer />
     </div>
   )

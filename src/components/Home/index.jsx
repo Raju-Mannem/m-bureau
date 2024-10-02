@@ -42,7 +42,7 @@ export default function Home() {
       <div style={{padding: '150px 0 0 0'}} className="relative flex h-[650px] w-screen flex-col items-center justify-center overflow-hidden bg-background">
       <span>
       <div className="flex flex-col items-center justify-center h-[40rem]  ">
-        <h1 className='text-2xl md:text-2xl lg:text-4xl'>మీ ఇంట వివాహం మా బాధ్యత </h1> 
+        <h1 className='text-2xl md:text-2xl lg:text-4xl'>మీ వివాహం మా బాధ్యత </h1> 
         
       <TypewriterEffectSmooth words={words} />
       

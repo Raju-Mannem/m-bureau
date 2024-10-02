@@ -11,10 +11,13 @@ import { HomeContainer} from './MainStyledComponents'
 const Main=()=> {
     const location = useLocation()
   return (
-    <div className="bg-[url('https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/alvqjzpslu3gd6k6jmqc')]
-    bg-no-repeat bg-cover bg-center bg-fixed
+    <div>
+      <HomeContainer className="bg-[url('https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/alvqjzpslu3gd6k6jmqc')]
+    bg-no-repeat 
+    bg-cover 
+    bg-center 
+    bg-fixed
     ">
-      <HomeContainer>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />

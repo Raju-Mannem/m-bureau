@@ -1,0 +1,19 @@
+h1{
+    margin: 20px 0 !important;
+    font-size: 1.5rem !important;
+    color: #00bf63 !important;
+    text-decoration: underline !important;
+}
+
+ul li{
+    margin: 20px 0 !important;
+    line-height: 1.5 !important;
+}
+strong{
+    margin: 20px 10px 20px 0 !important;
+    text-decoration: underline !important;
+}
+p{
+    font-weight: bold;
+    font-size: 0.8rem !important;
+}

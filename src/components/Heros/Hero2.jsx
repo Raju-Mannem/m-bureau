@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import '@fontsource/ramaraja';
-
-
 function Hero2() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -28,7 +26,7 @@ function Hero2() {
         animate={isVisible ? { y: -20, opacity: 1 } : {}}
         transition={{ duration: 2, ease: 'linear' }}
       >
-        <div className="mx-auto my-16 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg
+        <div className="mx-auto my-16 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg border-r-4 border-b-4 border-green-400
         bg-white
         ">
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 lg:py-8">

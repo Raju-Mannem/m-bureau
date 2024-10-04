@@ -34,7 +34,7 @@ function Stats() {
          sm:px-6 sm:py-12 lg:px-8"
         >
           <div className="mx-auto max-w-3xl text-center bg-white mb-32">
-            <h2 className="text-5xl font-bold text-green-400 py-2 sm:text-2xl bg-white rounded-t-lg underline decoration-4">
+            <h2 className="text-2xl font-bold text-green-400 py-2 sm:text-xl bg-white rounded-t-lg underline decoration-4">
               We are here to make your dreams come true
             </h2>
 
@@ -50,7 +50,7 @@ function Stats() {
                 Successful Marriages
               </dt>
 
-              <dd className="text-2xl font-extrabold text-[#00bf63] md:text-5xl">
+              <dd className="text-xl font-extrabold text-[#00bf63] md:text-5xl">
                 50+
               </dd>
             </div>
@@ -60,7 +60,7 @@ function Stats() {
                 Indian Relationships
               </dt>
 
-              <dd className="text-2xl font-extrabold text-[#00bf63] md:text-5xl">
+              <dd className="text-xl font-extrabold text-[#00bf63] md:text-5xl">
                 70+
               </dd>
             </div>
@@ -70,7 +70,7 @@ function Stats() {
                 Other Countries
               </dt>
 
-              <dd className="text-2xl font-extrabold text-[#00bf63] md:text-5xl">
+              <dd className="text-xl font-extrabold text-[#00bf63] md:text-5xl">
                 90%
               </dd>
             </div>
@@ -80,7 +80,7 @@ function Stats() {
                 Satisfaction and Trust
               </dt>
 
-              <dd className="text-2xl font-extrabold text-[#00bf63] md:text-5xl">
+              <dd className="text-xl font-extrabold text-[#00bf63] md:text-5xl">
                 99%
               </dd>
             </div>

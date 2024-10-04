@@ -27,7 +27,7 @@ function About2() {
         transition={{ duration: 2, ease: "linear" }}
       >
         <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12 py-12">
-          <div className="md:7/12 lg:w-6/12 text-left text-xl leading-relaxed">
+          <div className="md:7/12 lg:w-6/12 text-left sm:text-sm lg:text-xl leading-relaxed">
             <h1 className="about-h1">Our Specialties</h1>
             <ul>
               <li>

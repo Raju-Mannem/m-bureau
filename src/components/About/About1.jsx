@@ -34,7 +34,7 @@ function About1() {
               className="w-full h-auto rounded-full"
             />
           </div>
-          <div className="md:7/12 lg:w-6/12 text-left text-xl leading-relaxed">
+          <div className="md:7/12 lg:w-6/12 text-left sm:text-sm lg:text-xl leading-relaxed">
             Our main goal is to assist you in finding the right partner! By
             reviewing each profile and understanding the values and aspirations
             you desire, we aim to create relationships that suit you.

@@ -19,7 +19,7 @@ function About() {
       "
       >
         <div className="container m-auto py-32 px-6 text-gray-600 md:px-12 xl:px-6 ">
-          <h2 className="text-2xl text-[#00bf63] font-bold md:text-4xl pb-8">
+          <h2 className="sm:text-base text-[#00bf63] font-bold lg:text-4xl pb-8">
             <strong className="underline about-strong">
               Krishna Veni Marriage Bureau
             </strong>
@@ -38,7 +38,7 @@ function About() {
             <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>
           </span>
           <About3 />
-          <h2 className="text-2xl text-[#00bf63] font-bold md:text-4xl pb-8">
+          <h2 className="sm:text-base text-[#00bf63] font-bold lg:text-4xl pb-8">
             Thank you for choosing "Krishna Veni Marriage Bureau" as part of
             your experience. We look forward to helping you find your happy
             life!

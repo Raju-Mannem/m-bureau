@@ -1,0 +1,14 @@
+input:focus, textarea:focus{
+    color: #00bf63; /* This sets the text color to green-400 */
+    box-shadow: inset 0 0 0 1px #00bf63;
+    border: none;
+  }
+  #name, #email, #message, #phone, #address{
+    color: #00bf63;
+    border: 1px solid #00bf63;
+  }
+  #name:focus, #email:focus, #message:focus, #phone:focus, #address:focus{
+    color: #00bf63;
+    border: 1px solid #00bf63;
+    box-shadow: inset 0 0 0 1px #00bf63;
+  }

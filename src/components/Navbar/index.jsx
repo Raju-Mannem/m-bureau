@@ -1,45 +1,60 @@
 import React, { useState } from "react";
-import { Menu} from "../ui/navbar-menu";
+import { Menu } from "../ui/navbar-menu";
 import { cn } from "../../lib/utils";
-import './index.css';
-import '@fontsource/ramabhadra';
+import "./index.css";
 import { Link } from "react-router-dom";
 import FlickerImages from "./FlickerImages";
-import '@fontsource/ramaraja';
-import {HomeIcon, AboutIcon, RegisterIcon, ContactIcon} from "./NavbarStyledComponents";
+import '@fontsource/roboto';import {
+  HomeIcon,
+  AboutIcon,
+  RegisterIcon,
+  ContactIcon,
+} from "./NavbarStyledComponents";
 
 export function NavbarDemo() {
   return (
-    (<div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-0  border-slate-300 hover:shadow-lg shadow-blue-500/50 rounded-b-lg"/>
-    </div>)
+    <div className="relative w-full flex items-center justify-center">
+      <Navbar className="top-0  border-slate-300 hover:shadow-lg shadow-blue-500/50 rounded-b-lg" />
+    </div>
   );
 }
 
-function Navbar({
-  className
-}) {
+function Navbar({ className }) {
   const [active, setActive] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    (<div
-      className={cn("fixed top-10 inset-x-0 text-xl min-w-2xl mx-auto z-50", className)} 
-      style={{zIndex:'100'}}
-      >
-      <Menu setActive={setActive} id="nav-menu" >
+    <div
+      className={cn(
+        "fixed top-10 inset-x-0 text-xl min-w-2xl mx-auto z-50",
+        className
+      )}
+      style={{ zIndex: "100" }}
+    >
+      <Menu setActive={setActive} id="nav-menu">
         <FlickerImages />
-        <button 
-          className={`relative block lg:hidden nav-btn ${isMenuOpen ? 'open' : ''}`}
+        <button
+          className={`relative block lg:hidden nav-btn ${
+            isMenuOpen ? "open" : ""
+          }`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </button>
-          <span className={`flex flex-row justify-between items-center w-3/5`} id={`tab-nav-close`}>
-        <Link to="/" className=" desknav-link"><HomeIcon />హోమ్ పేజీ</Link>
-       <Link to="/about" className=" desknav-link"><AboutIcon />మా గురించి</Link>
-        <Link to="/register" className=" desknav-link">
-        {/* <MenuItem setActive={setActive} active={active} item="Services">
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
+        <span
+          className={`flex flex-row justify-between items-center w-3/5`}
+          id={`tab-nav-close`}
+        >
+          <Link to="/" className="desknav-link">
+            <HomeIcon />
+            Home
+          </Link>
+          <Link to="/about" className="desknav-link">
+            <AboutIcon />
+            About Us
+          </Link>
+          <Link to="/register" className=" desknav-link">
+            {/* <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
             <HoveredLink href="/interface-design">Interface Design</HoveredLink>
@@ -47,9 +62,10 @@ function Navbar({
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
         </MenuItem> */}
-        <RegisterIcon />రిజిస్టర్
-        </Link>
-{/*         
+            <RegisterIcon />
+            Register
+          </Link>
+          {/*         
         <MenuItem setActive={setActive} active={active} item="Products">
           <div className="  text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
@@ -74,21 +90,39 @@ function Navbar({
               description="Respond to government RFPs, RFIs and RFQs 10x faster using AI" />
           </div>
         </MenuItem> */}
-        <Link to="/contact" className=" desknav-link"><ContactIcon />సంప్రదించండి</Link>
+          <Link to="/contact" className=" desknav-link">
+            <ContactIcon />
+            Contact
+          </Link>
           {/* <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
             <HoveredLink href="/individual">Individual</HoveredLink>
             <HoveredLink href="/team">Team</HoveredLink>
             <HoveredLink href="/enterprise">Enterprise</HoveredLink>
           </div> */}
-          </span>
+        </span>
       </Menu>
-      <span className={`flex flex-row justify-between items-between w-3/5`} id={`${isMenuOpen ? 'nav-open' : 'nav-close'}`}>
-        <Link to="/" className=" nav-link"><HomeIcon/>హోమ్ పేజీ</Link>
-       <Link to="/about" className=" nav-link"><AboutIcon />మా గురించి</Link>
-        <Link to="/register" className=" nav-link"><RegisterIcon />రిజిస్టర్</Link>
-        <Link to="/contact" className=" nav-link"><ContactIcon />సంప్రదించండి</Link>
+      <span
+        className={`flex flex-row justify-between items-between w-3/5`}
+        id={`${isMenuOpen ? "nav-open" : "nav-close"}`}
+      >
+        <Link to="/" className="nav-link">
+          <HomeIcon />
+          Home Page
+        </Link>
+        <Link to="/about" className="nav-link">
+          <AboutIcon />
+          About Us
+        </Link>
+        <Link to="/register" className="nav-link">
+          <RegisterIcon />
+          Register
+        </Link>
+        <Link to="/contact" className="nav-link">
+          <ContactIcon />
+          Contact
+        </Link>
       </span>
-    </div>)
+    </div>
   );
 }

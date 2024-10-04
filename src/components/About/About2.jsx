@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import "@fontsource/ramaraja";
+import '@fontsource/roboto';
 function About2() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -18,6 +18,7 @@ function About2() {
       observer.disconnect();
     };
   }, []);
+
   return (
     <div ref={ref} className="py-24">
       <motion.section
@@ -27,26 +28,27 @@ function About2() {
       >
         <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12 py-12">
           <div className="md:7/12 lg:w-6/12 text-left text-xl leading-relaxed">
-            <h1> మా ప్రత్యేకతలు </h1>
+            <h1 className="about-h1">Our Specialties</h1>
             <ul>
               <li>
-                <strong>సాంస్కృతిక సెన్సిటివిటీ:</strong> తెలుగు కుటుంబాలకు
-                ప్రత్యేకమైన సాంస్కృతిక నైపుణ్యాలను గౌరవిస్తూ, మా సేవలు ఈ
-                సంప్రదాయాలకు అనుగుణంగా రూపొందించబడ్డాయి.
+                <strong className="about-strong">Cultural Sensitivity:</strong>{" "}
+                Our services are designed to respect and align with the unique
+                cultural skills specific to Telugu families.
               </li>
               <li>
-                <strong>వ్యక్తిగత సేవ:</strong> మీకు ప్రత్యేకమైన అవసరాలు
-                ఉన్నాయని మేము అర్థం చేసుకుంటాము. అందుకే, మీకు సరైన భాగస్వామిని
-                కనుగొనడం సులభంగా మరియు ఆనందంగా ఉండేలా మేము కృషి చేస్తాము.
+                <strong className="about-strong">Personalized Service:</strong>{" "}
+                We understand that you have unique needs. Therefore, we strive
+                to make finding the right partner easy and enjoyable for you.
               </li>
               <li>
-                <strong>గోప్యత:</strong> మీ వ్యక్తిగత సమాచారాన్ని మేము అత్యంత
-                గోప్యతతో నిర్వహిస్తాము. మీ నమ్మకం మాకు చాలా విలువైనది.
+                <strong className="about-strong">Privacy:</strong> We handle
+                your personal information with the utmost confidentiality. Your
+                trust is very valuable to us.
               </li>
               <li>
-                <strong>విశ్లేషణ మార్గనిర్దేశం:</strong> మా అనుభవంతో, మేము మీకు
-                ఉత్తమ మార్గనిర్దేశాన్ని అందించగలము, ఇది మీ కోసం సరైన భాగస్వామిని
-                కనుగొనడంలో సహాయపడుతుంది.
+                <strong className="about-strong">Guided Analysis:</strong> With
+                our experience, we can provide you with the best guidance to
+                help you find the right partner.
               </li>
             </ul>
           </div>

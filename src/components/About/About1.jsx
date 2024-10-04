@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import "@fontsource/ramaraja";
+import '@fontsource/roboto';
 function About1() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -18,6 +18,7 @@ function About1() {
       observer.disconnect();
     };
   }, []);
+
   return (
     <div ref={ref} className="py-24">
       <motion.section
@@ -34,13 +35,13 @@ function About1() {
             />
           </div>
           <div className="md:7/12 lg:w-6/12 text-left text-xl leading-relaxed">
-            మీరు సరైన భాగస్వామిని కనుగొనడంలో మీకు సహాయపడటమే మా ముఖ్యమైన లక్ష్యం!
-            ప్రతి ప్రొఫైల్‌ను పరిశీలించడం, మీరు కోరుకునే విలువలు మరియు ఆశయాలను
-            అర్థం చేసుకోవడం ద్వారా, మీకు సరిపోయే సంబంధాలను ఏర్పరచడం మా సర్వస్వం.
-            <h1>మా హామీ</h1>
-            మీ భాగస్వామిని కనుగొనడం మీకు సంతృప్తికరమైన అనుభవంగా
-            మారాలనుకుంటున్నాము. మీ సంప్రదాయాలను గౌరవించే మరియు మీ ఆశయాలను
-            నెరవేర్చే స్ఫూర్తితో, మేము మీకు సహాయపడేందుకు సిద్ధంగా ఉన్నాం.
+            Our main goal is to assist you in finding the right partner! By
+            reviewing each profile and understanding the values and aspirations
+            you desire, we aim to create relationships that suit you.
+            <h1 className="about-h1">Our Guarantee</h1>
+            We want finding your partner to be a satisfying experience for you.
+            With the spirit of respecting your traditions and fulfilling your
+            aspirations, we are ready to assist you.
           </div>
         </div>
       </motion.section>

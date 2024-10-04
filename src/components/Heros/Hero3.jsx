@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import '@fontsource/roboto';
+
+
 function Hero3() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -25,11 +28,7 @@ function Hero3() {
         animate={isVisible ? { y: -20, opacity: 1 } : {}}
         transition={{ duration: 2, ease: "linear" }}
       >
-        <div
-          className="mx-auto mb-20 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg border-r-4 border-b-4 border-green-400
-        bg-white
-        "
-        >
+        <div className="mx-auto mb-20 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg border-r-4 border-b-4 border-green-400 bg-white">
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 lg:py-8">
             <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
               <img
@@ -41,12 +40,12 @@ function Hero3() {
 
             <div className="lg:py-24 sm:px-12">
               <h2 className="text-xl font-bold bg-green-400 text-white rounded-lg w-fit px-4 py-1 sm:text-4xl">
-                మీరు కోరుకున్న బంధం
+                The Bond You Desire
               </h2>
               <p className="mt-4 text-gray-600 font-bold text-left leading-9">
-                మీకు సరైన వ్యక్తిని కనుగొనడంలో, మేము మీకు సహాయపడతాము. మా
-                విశేషమైన సేవలతో, మీ జీవితంలో ప్రేమను మరియు సంతోషాన్ని అందించడం
-                మాకు ముఖ్యమైనది.
+                We assist you in finding the right person. With our exceptional
+                services, bringing love and happiness into your life is our
+                priority.
               </p>
             </div>
           </div>

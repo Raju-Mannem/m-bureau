@@ -1,6 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import Waves from '../Waves';
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import Waves from "../Waves";
+import '@fontsource/roboto';
+
+
+
 function Hero1() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -25,11 +29,9 @@ function Hero1() {
       <motion.section
         initial={{ y: 80, opacity: 0 }}
         animate={isVisible ? { y: -20, opacity: 1 } : {}}
-        transition={{ duration: 2, ease: 'linear' }}
+        transition={{ duration: 2, ease: "linear" }}
       >
-        <div className="mx-auto my-16 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg border-r-4 border-b-4 border-green-400
-       bg-white
-        ">
+        <div className="mx-auto my-16 max-w-screen-xl px-4 py-32 sm:px-6 sm:py-12 lg:px-8 lg:py-8 shadow-2xl shadow-yellow-950 rounded-lg border-r-4 border-b-4 border-green-400 bg-white">
           <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 lg:py-8">
             <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
               <img
@@ -41,11 +43,12 @@ function Hero1() {
 
             <div className="lg:py-24 sm:px-12">
               <h2 className="text-xl font-bold bg-green-400 text-white rounded-lg w-fit px-4 py-1 sm:text-4xl">
-              వివాహం మరియు సంప్రదాయాలు
+                Marriage and Traditions
               </h2>
               <p className="mt-4 text-gray-600 font-bold text-left leading-9">
-              మా వివాహ సేవలు, హిందూ సంప్రదాయాలకు అనుగుణంగా ప్రత్యేకంగా రూపొందించబడ్డాయి. 
-              మేము మీ జీవిత భాగస్వామిని కనుగొనడంలో మీకు అంకితబద్ధతతో సహాయం చేస్తాము."
+                Our marriage services are specially designed in accordance with
+                Hindu traditions. We are committed to helping you find your life
+                partner.
               </p>
             </div>
           </div>

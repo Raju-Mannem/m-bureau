@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import "@fontsource/ramaraja";
+import '@fontsource/roboto';
 function About3() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
@@ -13,10 +14,12 @@ function About3() {
     if (ref.current) {
       observer.observe(ref.current);
     }
+
     return () => {
       observer.disconnect();
     };
   }, []);
+
   return (
     <div ref={ref} className="py-24">
       <motion.section
@@ -33,21 +36,22 @@ function About3() {
             />
           </div>
           <div className="md:7/12 lg:w-6/12 text-left text-xl leading-relaxed">
-            <h1>మాతో సంప్రదించండి</h1>
-            <p>
-              మీరు మమ్మల్ని సంప్రదించి, మా సేవలను గురించి తెలుసుకోవడానికి
-              స్వాగతం!
+            <h1 className="about-h1">Contact Us</h1>
+            <p className="about-p">
+              We welcome you to reach out to us and learn more about our
+              services!
             </p>
             <ul className="leading-6 my-6">
               <li className="leading-6">
-                <strong>ఫోన్:</strong> +91 1111111111
+                <strong className="about-strong">Phone:</strong> +91 1111111111
               </li>
               <li className="leading-6">
-                <strong>ఇమెయిల్:</strong>
+                <strong className="about-strong">Email:</strong>
                 <Link to="mailto:abc@gmail.com">abc@gmail.com</Link>
               </li>
               <li className="leading-6">
-                <strong>చిరునామా:</strong> మీ ఆఫీసు చిరునామా
+                <strong className="about-strong">Address:</strong> Your office
+                address
               </li>
             </ul>
           </div>

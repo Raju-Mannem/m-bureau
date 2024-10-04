@@ -19,7 +19,7 @@ function About() {
       "
       >
         <div className="container m-auto py-32 px-6 text-gray-600 md:px-12 xl:px-6 ">
-          <h2 className="sm:text-base text-[#00bf63] font-bold lg:text-4xl pb-8">
+          <h2 className="sm:text-base text-[#00bf63] font-bold lg:text-2xl pb-8">
             <strong className="underline about-strong">
               Krishnaveni Marriage Bureau
             </strong>

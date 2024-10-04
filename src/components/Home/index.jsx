@@ -25,10 +25,10 @@ export default function Home() {
     {
       text: "Bureau \u00A0",
     },
-    {
-      text: "(Former Sarpanch)",
-      className: "text-black-500 dark:text-blue-500",
-    },
+    // {
+    //   text: "(Former Sarpanch)",
+    //   className: "text-black-500 dark:text-blue-500",
+    // },
   ];
 
   return (
@@ -55,7 +55,7 @@ export default function Home() {
         >
           <span>
             <div className="flex flex-col items-center justify-center h-[40rem]">
-              <h1 className="sm:text-sm  md:text-2xl lg:text-2xl">
+              <h1 className="sm:text-sm  md:text-xl lg:text-xl">
                 Your marriage is our responsibility
               </h1>
               <TypewriterEffectSmooth words={words} />

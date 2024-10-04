@@ -9,6 +9,9 @@ import Hero3 from "../Heros/Hero3";
 import Stats from "../Stats";
 import Faq from "../Faq";
 import Footer from "../Footer";
+import '@fontsource-variable/noto-sans-jp';
+import '@fontsource/roboto';
+
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -52,7 +55,7 @@ export default function Home() {
         >
           <span>
             <div className="flex flex-col items-center justify-center h-[40rem]">
-              <h1 className="text-2xl md:text-2xl lg:text-4xl">
+              <h1 className="text-xl md:text-2xl lg:text-4xl">
                 Your marriage is our responsibility
               </h1>
               <TypewriterEffectSmooth words={words} />

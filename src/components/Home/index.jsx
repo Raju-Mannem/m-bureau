@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   const words = [
     {
-      text: "Krishna Veni \u00A0 ",
+      text: "KrishnaVeni \u00A0 ",
     },
     {
       text: "Marriage \u00A0 ",

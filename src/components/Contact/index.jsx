@@ -10,7 +10,6 @@ function Contact() {
     message: "",
     phone: "",
     address: "",
-    message: "",
   });
 
   const handleChange = (e) => {

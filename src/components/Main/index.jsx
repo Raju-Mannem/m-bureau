@@ -6,6 +6,8 @@ import Home from '../Home'
 import About from '../About'
 import Login from '../Login'
 import Register from '../Register'
+import Dashboard from '../Dashboard'
+import ProtectedRoute from '../ProtectedRoute'
 import { HomeContainer} from './MainStyledComponents'
 
 const Main=()=> {
@@ -20,6 +22,11 @@ const Main=()=> {
         <Route path="/disclimar" element={<Disclimar />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
       </Routes>
       </HomeContainer>
     </div>

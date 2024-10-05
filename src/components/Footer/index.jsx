@@ -91,7 +91,7 @@ const Footer = () => {
                 <motion.span {...itemAnimation} transition={{ duration: 1.5 }}>Copyright © <span id="get-current-year">krishnaveni marriage bureau {new Date().getFullYear()}</span></motion.span>
                 </div>
             </div>
-            <span className='text-xs right-auto'>Designed and Developed by <Link to="https://www.creative-tim.com/product/notus-js" className="text-green-400 hover:text-gray-800 text-sm" target="_blank" {...itemAnimation} transition={{ duration: 1.5, delay: 0.2 }}>ZeusIT</Link></span>
+            <span className='text-xs right-auto'>Designed and Developed by <Link to="https://zeusit.us/" className="text-green-400 hover:text-gray-800 text-sm" target="_blank" {...itemAnimation} transition={{ duration: 1.5, delay: 0.2 }}>ZeusIT</Link></span>
           </div>
         </div>
       </motion.footer>

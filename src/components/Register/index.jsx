@@ -27,7 +27,7 @@ const Register = () => {
   
     try {
       // Send user data to backend
-      const response = await axios.post('http://localhost:5000/api/users', userData);
+      const response = await axios.post('https://m-bureau-backend.onrender.com/api/users', userData);
       
       // Store token or any identifier in localStorage (if applicable)
       localStorage.setItem('token', response.data.id); // Example of storing ID as token

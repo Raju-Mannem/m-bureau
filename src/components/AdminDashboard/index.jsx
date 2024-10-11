@@ -61,35 +61,47 @@ const AdminDashboard = () => {
             Logout
           </button>
         </div>
-        <div className="py-20 border-t border-green-200">
+        <div className="py-20 border-t border-green-200 overflow-auto">
           {error && <p className="text-red-500">{error}</p>}
-          <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-4 gap-4 text-xs">
-            <div className="font-bold bg-green-400 text-white p-2 rounded text-xs">User ID</div>
-            <div className="font-bold bg-green-400 text-white p-2 rounded text-xs">Email</div>
-            <div className="font-bold bg-green-400 text-white p-2 rounded text-xs">Payment Status</div>
-            <div className="font-bold bg-green-400 text-white p-2 rounded text-xs">Profile Access</div>
-            {users.length > 0 ? (
-              users.map((user) => (
-                <React.Fragment key={user._id}>
-                  <div className="border p-2 text-xs">{user._id}</div>
-                  <div className="border p-2 text-xs">{user.email}</div>
-                  <div className="border p-2 text-xs">{user.payment ? "Paid" : "Unpaid"}</div>
-                  <div className="border p-2 text-xs">
-                    <label>
-                      <input
-                        type="checkbox"
-                        checked={user.access}
-                        onChange={() => toggleAccess(user._id, user.access)}
-                      />
-                      {user.access ? " Access" : " No Access"}
-                    </label>
-                  </div>
-                </React.Fragment>
-              ))
-            ) : (
-              <div className="col-span-4 border p-2 text-center">No users found</div>
-            )}
-          </div>
+          <table className="min-w-full bg-white border border-gray-300 text-sm">
+            <thead>
+              <tr className="bg-green-400 text-white text-sm">
+                <th className="border px-4 py-2">User ID</th>
+                <th className="border px-4 py-2">Email</th>
+                <th className="border px-4 py-2">Payment Status</th>
+                <th className="border px-4 py-2">Profile Access</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.length > 0 ? (
+                users.map((user) => (
+                  <tr key={user._id}>
+                    <td className="border px-4 py-2 text-xs">{user._id}</td>
+                    <td className="border px-4 py-2 text-xs">{user.email}</td>
+                    <td className="border px-4 py-2 text-xs">
+                      {user.payment ? "Paid" : "Unpaid"}
+                    </td>
+                    <td className="border px-4 py-2 text-xs">
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={user.access}
+                          onChange={() => toggleAccess(user._id, user.access)}
+                        />
+                        {user.access ? " Access" : " No Access"}
+                      </label>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4" className="border px-4 py-2 text-center">
+                    No users found
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
         <Footer />
       </div>

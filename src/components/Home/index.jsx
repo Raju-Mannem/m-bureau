@@ -55,7 +55,7 @@ export default function Home() {
         >
           <span>
             <div className="flex flex-col items-center justify-center h-[40rem]">
-              <h1 className="sm:text-sm  md:text-xl lg:text-xl">
+              <h1 className="sm:text-xs lg:text-xl">
                 Your marriage is our responsibility
               </h1>
               <TypewriterEffectSmooth words={words} />

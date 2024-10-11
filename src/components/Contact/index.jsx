@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
-import "./Contact.css"; // Ensure you have this CSS file created
+import "./Contact.css";
+import "@fontsource/roboto";
+import "@fontsource-variable/noto-sans-jp";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -31,12 +33,12 @@ function Contact() {
       <div>
         <div className="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto">
-            <div className="max-w-md mx-auto my-10 bg-white dark:bg-gray-800 p-5 rounded-md shadow-sm">
+            <div className="max-w-md mx-auto my-20 bg-white dark:bg-gray-800 p-5 rounded-md shadow-sm">
               <div className="text-center">
-                <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
+                <h1 className="my-3 sm:text-xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-200">
                   Contact Us
                 </h1>
-                <p className="text-gray-400 dark:text-gray-400">
+                <p className="text-gray-400 sm:text-sm dark:text-gray-400">
                   Please follow the form below to contact us
                 </p>
               </div>
@@ -45,7 +47,7 @@ function Contact() {
                   <div className="mb-6">
                     <label
                       htmlFor="name"
-                      className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                      className="block mb-2 text-xs text-gray-600 dark:text-gray-400"
                     >
                       Full Name
                     </label>
@@ -63,7 +65,7 @@ function Contact() {
                   <div className="mb-6">
                     <label
                       htmlFor="email"
-                      className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                      className="block mb-2 text-xs text-gray-600 dark:text-gray-400"
                     >
                       Email Address
                     </label>
@@ -81,7 +83,7 @@ function Contact() {
                   <div className="mb-6">
                     <label
                       htmlFor="phone"
-                      className="text-sm text-gray-600 dark:text-gray-400"
+                      className="text-xs text-gray-600 dark:text-gray-400"
                     >
                       Phone Number
                     </label>
@@ -99,7 +101,7 @@ function Contact() {
                   <div className="mb-6">
                     <label
                       htmlFor="address"
-                      className="text-sm text-gray-600 dark:text-gray-400"
+                      className="text-xs text-gray-600 dark:text-gray-400"
                     >
                       Addresss
                     </label>
@@ -117,7 +119,7 @@ function Contact() {
                   <div className="mb-6">
                     <label
                       htmlFor="message"
-                      className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                      className="block mb-2 text-xs text-gray-600 dark:text-gray-400"
                     >
                       Message
                     </label>
@@ -135,7 +137,7 @@ function Contact() {
                   <div className="mb-6">
                     <button
                       type="submit"
-                      className="w-full px-3 py-4 text-white bg-[#00bf63] rounded-md focus:bg-indigo-600 focus:outline-none"
+                      className="w-full px-3 py-4 text-white bg-[#00bf63] rounded-md text-xs focus:bg-indigo-600 focus:outline-none"
                     >
                       Send Message
                     </button>

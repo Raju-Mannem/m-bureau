@@ -63,7 +63,7 @@ const AdminDashboard = () => {
         </div>
         <div className="py-20 border-t border-green-200">
           {error && <p className="text-red-500">{error}</p>}
-          <table className="w-9/12 bg-white border border-gray-300 text-sm">
+          <table className="sm:w-80 lg:w-full bg-white border border-gray-300 text-sm">
             <thead>
               <tr className="bg-green-400 text-white text-sm">
                 <th className="border px-4 py-2">User ID</th>

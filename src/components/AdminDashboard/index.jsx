@@ -61,10 +61,10 @@ const AdminDashboard = () => {
             Logout
           </button>
         </div>
-        <div className="py-20 border-t border-green-200">
+        <div className="py-20 border-t border-green-200 overflow-hidden">
           {error && <p className="text-red-500">{error}</p>}
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-300 text-sm">
+          <div className="overflow-hidden">
+            <table className="min-w-full table-auto bg-white border border-gray-300 text-sm">
               <thead>
                 <tr className="bg-green-400 text-white text-sm">
                   <th className="border px-4 py-2">User ID</th>

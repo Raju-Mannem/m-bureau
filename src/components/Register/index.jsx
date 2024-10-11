@@ -1,41 +1,33 @@
-import React from "react";
+import React,{useState} from 'react';
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
 import { GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import "@fontsource-variable/noto-sans-jp";
 import "@fontsource/roboto";
-import { jwtDecode } from 'jwt-decode';
 
 
 const Register = () => {
+  const [loginError, setLoginError] = useState(null);
   const handleLoginSuccess = async (credentialResponse) => {
     if (!credentialResponse || !credentialResponse.credential) {
-      console.error('Login failed: Invalid response', credentialResponse);
+      setLoginError('unable to signin, please try again');
       return;
     }
-  
     const token = credentialResponse.credential; // This is the JWT token
-    const decoded = jwtDecode(token); // Decode the JWT token
-  
-    const userData = {
-      id: decoded.sub, // Google ID
-      name: decoded.name,
-      picture: decoded.picture,
-      email: decoded.email,
-    };
-  
     try {
-      // Send user data to backend
-      const response = await axios.post('https://m-bureau-backend.onrender.com/api/users', userData);
-      
-      // Store token or any identifier in localStorage (if applicable)
-      localStorage.setItem('token', response.data.id); // Example of storing ID as token
-  
-      // Redirect to dashboard or handle as needed
+      const response = await axios.post('https://krishnaveni-marriagebureau.vercel.app/api/users', {token})
+
+      // Store token or any identifier in localStorage
+      localStorage.setItem('token', {token});
+      localStorage.setItem('userid', response.data.user.googleId);
+      localStorage.setItem('usermail', response.data.user.email);
+      localStorage.setItem('payment', response.data.user.payment);
+      localStorage.setItem('access', response.data.user.access);
+      // Redirect to dashboard
       window.location.href = '/dashboard'; 
     } catch (error) {
-      console.error('Error while saving user data:', error);
+      setLoginError("unable to signin, backend not responding");
     }
   };
   return (
@@ -51,10 +43,12 @@ const Register = () => {
         <div className="container mx-auto py-12">
           <div>
             <p className="sm:text-xl lg:text-2xl">Please sign in with Google</p>
+            {loginError&&(<p className="text-red-500 text-sm">{loginError}</p>)}
+            
             <div className="w-fit h-fit py-12 mx-auto my-4">
               <GoogleLogin
                 onSuccess={handleLoginSuccess}
-                onError={() => console.log("Login Failed")}
+                onError={() => setLoginError('unable to signin, please try again')}
               />
             </div>
           </div>

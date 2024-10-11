@@ -1,0 +1,14 @@
+input:focus, textarea:focus{
+    color: #00bf63;
+    box-shadow: inset 0 0 0 1px #00bf63;
+    border: none;
+  }
+  #fullName, #fatherName, #motherName, #mobile, #age, #occupation, #experience, #salary, #currentAddress, #permanentAddress, #photo1, #photo2, #height, #message{
+    color: #00bf63;
+    border: 1px solid #00bf63;
+  }
+  #fullName:focus, #fatherName:focus, #motherName:focus, #mobile:focus, #age:focus, #occupation:focus, #experience:focus, #salary:focus, #currentAddress:focus, #permanentAddress:focus, #photo1:focus, #photo2:focus, #height:focus, #message:focus{
+    color: #00bf63;
+    border: 1px solid #00bf63;
+    box-shadow: inset 0 0 0 1px #00bf63;
+  }

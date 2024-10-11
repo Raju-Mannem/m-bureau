@@ -63,7 +63,7 @@ const AdminDashboard = () => {
         </div>
         <div className="py-20 border-t border-green-200">
           {error && <p className="text-red-500">{error}</p>}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-4 gap-4">
             <div className="font-bold bg-green-400 text-white p-2 rounded">User ID</div>
             <div className="font-bold bg-green-400 text-white p-2 rounded">Email</div>
             <div className="font-bold bg-green-400 text-white p-2 rounded">Payment Status</div>

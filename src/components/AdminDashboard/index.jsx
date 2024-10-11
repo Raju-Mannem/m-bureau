@@ -63,18 +63,18 @@ const AdminDashboard = () => {
         </div>
         <div className="py-20 border-t border-green-200">
           {error && <p className="text-red-500">{error}</p>}
-          <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-4 gap-4 sm:text-xs lg:text-sm">
-            <div className="font-bold bg-green-400 text-white p-2 rounded sm:text-xs lg:text-sm">User ID</div>
-            <div className="font-bold bg-green-400 text-white p-2 rounded sm:text-xs lg:text-sm">Email</div>
-            <div className="font-bold bg-green-400 text-white p-2 rounded sm:text-xs lg:text-sm">Payment Status</div>
-            <div className="font-bold bg-green-400 text-white p-2 rounded sm:text-xs lg:text-sm">Profile Access</div>
+          <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-4 gap-4 text-xs">
+            <div className="font-bold bg-green-400 text-white p-2 rounded text-xs">User ID</div>
+            <div className="font-bold bg-green-400 text-white p-2 rounded text-xs">Email</div>
+            <div className="font-bold bg-green-400 text-white p-2 rounded text-xs">Payment Status</div>
+            <div className="font-bold bg-green-400 text-white p-2 rounded text-xs">Profile Access</div>
             {users.length > 0 ? (
               users.map((user) => (
                 <React.Fragment key={user._id}>
-                  <div className="border p-2 sm:text-xs lg:text-sm">{user._id}</div>
-                  <div className="border p-2 sm:text-xs lg:text-sm">{user.email}</div>
-                  <div className="border p-2 sm:text-xs lg:text-sm">{user.payment ? "Paid" : "Unpaid"}</div>
-                  <div className="border p-2 sm:text-xs lg:text-sm">
+                  <div className="border p-2 text-xs">{user._id}</div>
+                  <div className="border p-2 text-xs">{user.email}</div>
+                  <div className="border p-2 text-xs">{user.payment ? "Paid" : "Unpaid"}</div>
+                  <div className="border p-2 text-xs">
                     <label>
                       <input
                         type="checkbox"

@@ -16,7 +16,7 @@ const Register = () => {
     }
     const token = credentialResponse.credential; // This is the JWT token
     try {
-      const response = await axios.post('https://krishnaveni-marriagebureau.vercel.app/api/users', {token})
+      const response = await axios.post('https://m-bureau-backend.onrender.com/api/users', {token})
 
       // Store token or any identifier in localStorage
       localStorage.setItem('token', {token});

@@ -46,7 +46,7 @@ export const ProfileForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://krishnaveni-marriagebureau.vercel.app/profiles', formData);
+      const response = await axios.post('https://m-bureau-backend.onrender.com/api/profiles', formData);
       alert("profile uploaded sucess fully");
     } catch (error) {
       setError("Failed to create profile: " + (error.response?.data.error || error.message));

@@ -12,7 +12,7 @@ const Profiles = () => {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const response = await axios.get("https://krishnaveni-marriagebureau.vercel.app/profiles");
+        const response = await axios.get("https://m-bureau-backend.onrender.com/api/profiles");
         setProfiles(response.data);
       } catch (error) {
         setError("Error fetching profiles");

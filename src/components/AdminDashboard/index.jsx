@@ -33,7 +33,7 @@ const AdminDashboard = () => {
     try {
       const updatedAccess = !currentAccess;
       const adminName = localStorage.getItem("adminName");
-        await axios.patch(`https://krishnaveni-marriagebureau.vercel.app/users/${userId}`, { access: updatedAccess, admin: adminName });
+        await axios.patch(`https://m-bureau-backend.onrender.com/api/users/${userId}`, { access: updatedAccess, admin: adminName });
         setUsers((prevUsers) =>
         prevUsers.map((user) =>
           user._id === userId ? { ...user, access: updatedAccess } : user

@@ -25,7 +25,7 @@ function Adminsignin() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://krishnaveni-marriagebureau.vercel.app/api/adminlogin",
+        "https://m-bureau-backend.onrender.com/api/adminlogin",
         formData
       );
       const { adminName, users } = response.data;

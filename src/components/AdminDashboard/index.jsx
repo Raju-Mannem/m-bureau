@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavbarDemo } from "../Navbar";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import axios from "axios";
 
@@ -33,8 +33,8 @@ const AdminDashboard = () => {
     try {
       const updatedAccess = !currentAccess;
       const adminName = localStorage.getItem("adminName");
-        await axios.patch(`https://m-bureau-backend.onrender.com/api/users/${userId}`, { access: updatedAccess, admin: adminName });
-        setUsers((prevUsers) =>
+      await axios.patch(`https://m-bureau-backend.onrender.com/api/users/${userId}`, { access: updatedAccess, admin: adminName });
+      setUsers((prevUsers) =>
         prevUsers.map((user) =>
           user._id === userId ? { ...user, access: updatedAccess } : user
         )
@@ -46,8 +46,8 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center w-screen h-full mx-2">
-      <div className="h-full w-screen">
+    <div className="flex flex-col items-center justify-center w-full h-full mx-2">
+      <div className="h-full w-full">
         <NavbarDemo />
         <div className="h-full mt-28 mb-2 flex items-center justify-around dark:bg-gray-900 rounded-lg py-8">
           <p className="sm:text-xs lg:text-sm">
@@ -61,47 +61,49 @@ const AdminDashboard = () => {
             Logout
           </button>
         </div>
-        <div className="py-20 w-20 border-t border-green-200">
+        <div className="py-20 border-t border-green-200">
           {error && <p className="text-red-500">{error}</p>}
-          <table className="w-20 bg-white border border-gray-300 text-sm">
-            <thead>
-              <tr className="bg-green-400 text-white text-sm">
-                <th className="border px-4 py-2">User ID</th>
-                <th className="border px-4 py-2">Email</th>
-                <th className="border px-4 py-2">Payment Status</th>
-                <th className="border px-4 py-2">Profile Access</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.length > 0 ? (
-                users.map((user) => (
-                  <tr key={user._id}>
-                    <td className="border px-4 py-2 text-xs">{user._id}</td>
-                    <td className="border px-4 py-2 text-xs">{user.email}</td>
-                    <td className="border px-4 py-2 text-xs">
-                      {user.payment ? "Paid" : "Unpaid"}
-                    </td>
-                    <td className="border px-4 py-2 text-xs">
-                      <label>
-                        <input
-                          type="checkbox"
-                          checked={user.access}
-                          onChange={() => toggleAccess(user._id, user.access)}
-                        />
-                        {user.access ? " Access" : " No Access"}
-                      </label>
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white border border-gray-300 text-sm">
+              <thead>
+                <tr className="bg-green-400 text-white text-sm">
+                  <th className="border px-4 py-2">User ID</th>
+                  <th className="border px-4 py-2">Email</th>
+                  <th className="border px-4 py-2">Payment Status</th>
+                  <th className="border px-4 py-2">Profile Access</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.length > 0 ? (
+                  users.map((user) => (
+                    <tr key={user._id}>
+                      <td className="border px-4 py-2 text-xs">{user._id}</td>
+                      <td className="border px-4 py-2 text-xs">{user.email}</td>
+                      <td className="border px-4 py-2 text-xs">
+                        {user.payment ? "Paid" : "Unpaid"}
+                      </td>
+                      <td className="border px-4 py-2 text-xs">
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={user.access}
+                            onChange={() => toggleAccess(user._id, user.access)}
+                          />
+                          {user.access ? " Access" : " No Access"}
+                        </label>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="4" className="border px-4 py-2 text-center">
+                      No users found
                     </td>
                   </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="4" className="border px-4 py-2 text-center">
-                    No users found
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
         <Footer />
       </div>

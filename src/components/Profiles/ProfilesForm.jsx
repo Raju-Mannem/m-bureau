@@ -19,37 +19,43 @@ export const ProfileForm = () => {
     salary: '',
     currentAddress: '',
     permanentAddress: '',
-    photo1: '',
-    photo2: '',
+    photo1: null,
+    photo2: null,
     height: '',
     message: '',
   });
-  
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
-
   const handleFileChange = (e) => {
     const { name, files } = e.target;
-    if (files && files.length > 0) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData((prevData) => ({ ...prevData, [name]: reader.result.split(',')[1] })); // Store as base64
-      };
-      reader.readAsDataURL(files[0]);
-    }
+    setFormData({ ...formData, [name]: files[0] });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formDataToSend = new FormData();
+    for (let key in formData) {
+      formDataToSend.append(key, formData[key]);
+    }
+  
+    setLoading(true); // Start loading state
+  
     try {
-      const response = await axios.post('https://m-bureau-backend.onrender.com/api/profiles', formData);
-      alert("profile uploaded sucess fully");
+      const response = await axios.post('https://m-bureau-backend.onrender.com/api/profiles', formDataToSend, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      alert("Profile uploaded successfully");
     } catch (error) {
-      setError("Failed to create profile: " + (error.response?.data.error || error.message));
+      setError("Failed to create profile: Profile Already Exist: " + (error.response?.data.error || error.message));
+    } finally {
+      setLoading(false); // End loading state
     }
   };
 
@@ -60,8 +66,8 @@ export const ProfileForm = () => {
         <div className="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto">
             <div className="max-w-md mx-auto my-20 bg-white dark:bg-gray-800 p-5 rounded-md shadow-sm">
+            <h1 className="text-sm font-semibold mb-4">Upload Profiles</h1>
             <div className="h-full  flex items-center justify-around dark:bg-gray-900 rounded-lg py-8">
-        <h1 className="text-sm font-semibold mb-4">Upload Profiles</h1>
         <Link to="/admin-dashboard" className="text-xs text-white bg-green-400 px-4 py-1 rounded font-bold focus:outline-none">Dashboard</Link>
         <Link to="/profiles" className="text-xs text-white bg-green-400 px-4 py-1 rounded font-bold focus:outline-none">View Profiles</Link>
         </div>
@@ -185,7 +191,7 @@ export const ProfileForm = () => {
                       Salary:
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       name="salary"
                       id="salary"
                       value={formData.salary}

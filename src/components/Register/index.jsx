@@ -24,6 +24,7 @@ const Register = () => {
       localStorage.setItem('usermail', response.data.user.email);
       localStorage.setItem('payment', response.data.user.payment);
       localStorage.setItem('access', response.data.user.access);
+      localStorage.setItem('profiles', JSON.stringify(response.data.profiles)); 
       // Redirect to dashboard
       window.location.href = '/dashboard'; 
     } catch (error) {

@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { NavbarDemo } from '../Navbar';
-import Footer from '../Footer';
-import {Link } from "react-router-dom"; 
+import React, { useState } from "react";
+import axios from "axios";
+import { NavbarDemo } from "../Navbar";
+import Footer from "../Footer";
+import { Link } from "react-router-dom";
 import "@fontsource/roboto";
 import "@fontsource-variable/noto-sans-jp";
 import "./index.css";
 
 export const ProfileForm = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    fatherName: '',
-    motherName: '',
-    mobile: '',
-    age: '',
-    occupation: '',
-    experience: '',
-    salary: '',
-    currentAddress: '',
-    permanentAddress: '',
+    fullName: "",
+    fatherName: "",
+    motherName: "",
+    mobile: "",
+    age: "",
+    occupation: "",
+    experience: "",
+    salary: "",
+    currentAddress: "",
+    permanentAddress: "",
     photo1: null,
     photo2: null,
-    height: '',
-    message: '',
+    height: "",
+    message: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -42,18 +42,25 @@ export const ProfileForm = () => {
     for (let key in formData) {
       formDataToSend.append(key, formData[key]);
     }
-  
+
     setLoading(true); // Start loading state
-  
+
     try {
-      const response = await axios.post('https://m-bureau-backend.onrender.com/api/profiles', formDataToSend, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await axios.post(
+        "https://m-bureau-backend.onrender.com/api/profiles",
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       alert("Profile uploaded successfully");
     } catch (error) {
-      setError("Failed to create profile: Profile Already Exist: " + (error.response?.data.error || error.message));
+      setError(
+        "Failed to create profile: Profile Already Exist: " +
+          (error.response?.data.error || error.message)
+      );
     } finally {
       setLoading(false); // End loading state
     }
@@ -65,17 +72,31 @@ export const ProfileForm = () => {
       <div>
         <div className="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto">
-            <div className="max-w-md mx-auto my-20 bg-white dark:bg-gray-800 p-5 rounded-md shadow-sm">
-            <h1 className="text-sm font-semibold mb-4">Upload Profiles</h1>
-            <div className="h-full  flex items-center justify-around dark:bg-gray-900 rounded-lg py-8">
-        <Link to="/admin-dashboard" className="text-xs text-white bg-green-400 px-4 py-1 rounded font-bold focus:outline-none">Dashboard</Link>
-        <Link to="/profiles" className="text-xs text-white bg-green-400 px-4 py-1 rounded font-bold focus:outline-none">View Profiles</Link>
-        </div>
+            <div className="max-w-md mx-auto my-20 bg-white dark:bg-gray-800 p-5 rounded-md shadow-sm border border-slate-300">
+              <h1 className="text-sm font-semibold mb-4 bg-green-400 rounded text-white py-1">
+                Upload Profiles</h1>
+              <div className="h-full  flex items-center justify-around dark:bg-gray-900 rounded-lg py-8">
+                <Link
+                  to="/admin-dashboard"
+                  className="text-xs text-white bg-green-400 px-4 py-1 rounded font-bold focus:outline-none"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  to="/profiles"
+                  className="text-xs text-white bg-green-400 px-4 py-1 rounded font-bold focus:outline-none"
+                >
+                  View Profiles
+                </Link>
+              </div>
               <div className="m-7">
                 <form onSubmit={handleSubmit}>
                   {/* Full Name */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="fullName" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="fullName"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Full Name:
                     </label>
                     <input
@@ -91,7 +112,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Father Name */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="fatherName" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="fatherName"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Father's Name:
                     </label>
                     <input
@@ -107,7 +131,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Mother Name */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="motherName" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="motherName"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Mother's Name:
                     </label>
                     <input
@@ -123,7 +150,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Mobile */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="mobile" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="mobile"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Mobile:
                     </label>
                     <input
@@ -139,7 +169,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Age */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="age" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="age"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Age:
                     </label>
                     <input
@@ -155,7 +188,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Occupation */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="occupation" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="occupation"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Occupation:
                     </label>
                     <input
@@ -171,7 +207,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Experience */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="experience" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="experience"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Experience:
                     </label>
                     <input
@@ -187,7 +226,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Salary */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="salary" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="salary"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Salary:
                     </label>
                     <input
@@ -203,7 +245,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Current Address */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="currentAddress" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="currentAddress"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Current Address:
                     </label>
                     <input
@@ -219,7 +264,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Permanent Address */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="permanentAddress" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="permanentAddress"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Permanent Address:
                     </label>
                     <input
@@ -235,7 +283,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Photo 1 */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="photo1" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="photo1"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Photo 1:
                     </label>
                     <input
@@ -250,7 +301,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Photo 2 */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="photo2" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="photo2"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Photo 2:
                     </label>
                     <input
@@ -265,7 +319,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Height */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="height" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="height"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Height:
                     </label>
                     <input
@@ -281,7 +338,10 @@ export const ProfileForm = () => {
                   </div>
                   {/* Message */}
                   <div className="mb-6 flex items-center">
-                    <label htmlFor="message" className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3">
+                    <label
+                      htmlFor="message"
+                      className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
+                    >
                       Message:
                     </label>
                     <textarea
@@ -297,7 +357,7 @@ export const ProfileForm = () => {
                   <div className="mb-6">
                     <button
                       type="submit"
-                      className="w-full px-3 py-4 text-white bg-[#00bf63] rounded-md text-xs focus:bg-indigo-600 focus:outline-none"
+                      className="w-full px-3 py-4 text-white bg-[#00bf63] rounded-md text-xs focus:bg-green-500 focus:outline-none"
                     >
                       Submit Profile
                     </button>

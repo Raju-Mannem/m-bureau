@@ -12,7 +12,7 @@ import AdminDashboard from '../AdminDashboard'
 import Profiles from '../Profiles'
 import { ProfileForm } from '../Profiles/ProfilesForm'
 import { HomeContainer} from './MainStyledComponents'
-import ViewProfile from '../Profiles/ViewProfile'
+import ProfileView from '../Profiles/ProfileView'
 
 const Main=()=> {
     const location = useLocation()
@@ -29,7 +29,7 @@ const Main=()=> {
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/upload-profiles" element={<ProfileForm />} />
         <Route path="profiles" element={<Profiles />} />
-        <Route path="/profile/:id" element={<ViewProfile />} />
+        <Route path="/profile/:id" element={<ProfileView />} />
         <Route path="/dashboard" element={
             <ProtectedRoute>
               <Dashboard />

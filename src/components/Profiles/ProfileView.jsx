@@ -5,7 +5,7 @@ import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
 import "@fontsource/roboto";
 
-function ViewProfile() {
+function ProfileView() {
   const { id } = useParams();
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState(null);
@@ -57,4 +57,4 @@ function ViewProfile() {
   );
 }
 
-export default ViewProfile;
+export default ProfileView;

@@ -1,7 +1,9 @@
 import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Contact from '../Contact'
-import Disclimar from '../Disclimar'
+import Disclaimer from '../Disclaimer'
+import Privacy from '../Privacy'
+import TermsAndConditions from '../TermsAndConditions'
 import Home from '../Home'
 import About from '../About'
 import Register from '../Register'
@@ -10,9 +12,9 @@ import ProtectedRoute from '../ProtectedRoute'
 import Adminsignin from '../Adminsignin'
 import AdminDashboard from '../AdminDashboard'
 import Profiles from '../Profiles'
+import ProfileView from '../Profiles/ProfileView'
 import { ProfileForm } from '../Profiles/ProfilesForm'
 import { HomeContainer} from './MainStyledComponents'
-import ProfileView from '../Profiles/ProfileView'
 
 const Main=()=> {
     const location = useLocation()
@@ -23,8 +25,10 @@ const Main=()=> {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
-        <Route path="/disclimar" element={<Disclimar />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/admin-signin" element={<Adminsignin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/upload-profiles" element={<ProfileForm />} />

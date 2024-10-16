@@ -27,7 +27,7 @@ function About() {
           </h2>
           <p className="about-p sm:text-base lg:text-xl">
             We are ready to provide trustworthy and personalized services at
-            Krishna Veni Marriage Bureau.
+            Krishnaveni Marriage Bureau.
           </p>
           <About1 />
           <span className="relative flex justify-center">
@@ -41,7 +41,7 @@ function About() {
           <span className="relative flex justify-center">
             <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>
           </span>
-          <h2 className="sm:text-base py-12 text-[#00bf63] font-bold lg:text-4xl pb-8">
+          <h2 className="sm:text-base py-12 text-[#00bf63] font-bold lg:text-xl pb-8">
             Thank you for choosing "Krishnaveni Marriage Bureau" as part of
             your experience. We look forward to helping you find your happy
             life!

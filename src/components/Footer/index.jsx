@@ -30,7 +30,7 @@ const Footer = () => {
   return (
     <div
       className="h-full w-screen border border-green-300 hover:shadow-lg shadow-2xl shadow-blue-500/50 rounded-t-lg
-      bg-[url('https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/ls2vpjzhqd6qgfkmb96j')]
+      bg-[url('https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/v2ydzuvatvuyrogfqmsg')]
       bg-no-repeat
       bg-cover
       bg-center

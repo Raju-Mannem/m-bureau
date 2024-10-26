@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
 import '@fontsource/roboto';
@@ -40,34 +41,66 @@ const Dashboard = () => {
           }
           </div>
         ): <div>
-           <table className="min-w-full bg-white border border-gray-300 text-sm">
-          <thead>
-            <tr className="bg-green-400 text-white text-sm">
-              <th className="border px-4 py-2">Full Name</th>
-              <th className="border px-4 py-2">Mobile</th>
-              <th className="border px-4 py-2">Occupation</th>
-              <th className="border px-4 py-2">Salary</th>
-            </tr>
-          </thead>
-          <tbody>
-            {profiles.length > 0 ? (
-              profiles.map((profile) => (
-                <tr key={profile._id}>
-                  <td className="border px-4 py-2 text-xs">{profile.fullName}</td>
-                  <td className="border px-4 py-2 text-xs">{profile.mobile}</td>
-                  <td className="border px-4 py-2 text-xs">{profile.occupation}</td>
-                  <td className="border px-4 py-2 text-xs">{profile.salary}</td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="4" className="border px-4 py-2 text-center">
-                  No profiles found
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+            <>
+            <p className="text-white text-sm lg:text-xl text-center bg-green-400 py-1">
+              Profiles
+              </p>
+              <div className="h-full overflow-x-auto overflow-y-hidden">
+                <table className="w-full table-auto">
+                  <thead>
+                    <tr className="bg-green-400 text-white text-sm">
+                      <th className="border px-4 py-2">Full Name</th>
+                      <th className="border px-4 py-2">Age</th>
+                      <th className="border px-4 py-2">Occupation</th>
+                      <th className="border px-4 py-2">Address</th>
+                      <th className="border px-4 py-2" colSpan="2">
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {profiles.length > 0 ? (
+                      profiles.map((profile) => (
+                        <tr
+                          key={profile._id}
+                          className="hover:bg-slate-300 hover:text-white"
+                        >
+                          <td className="border px-4 py-2 text-xs">
+                            {profile.fullName}
+                          </td>
+                          <td className="border px-4 py-2 text-xs">
+                            {profile.age}
+                          </td>
+                          <td className="border px-4 py-2 text-xs">
+                            {profile.occupation}
+                          </td>
+                          <td className="border px-4 py-2 text-xs">
+                            {profile.currentAddress} 
+                          </td>
+                          <td className="border px-4 py-2 text-xs">
+                            <Link
+                              to={`/profile/${profile._id}`}
+                              className="text-xs text-red-400 underline rounded font-bold focus:outline-none"
+                            >
+                              View
+                            </Link>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td
+                          colSpan="5"
+                          className="border px-4 py-2 text-center"
+                        >
+                          No profiles found
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </>
         </div>
         }
         </div>

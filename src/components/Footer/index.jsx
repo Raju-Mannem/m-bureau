@@ -75,12 +75,12 @@ const Footer = () => {
                         delay: 0.2 + index * 0.1,
                       }}
                     >
-                      <a
+                      <Link
                         className="text-green-400 font-semibold block pb-2 text-sm"
-                        href={link.url}
+                        to={link.url}
                       >
                         {link.name}
-                      </a>
+                      </Link>
                     </motion.li>
                   ))}
                 </ul>
@@ -98,12 +98,12 @@ const Footer = () => {
                       {...itemAnimation}
                       transition={{ duration: 1.5, delay: 0.2 + index * 0.1 }}
                     >
-                      <a
+                      <Link
                         className="text-green-400 font-semibold block pb-2 text-sm"
-                        href={link.url}
+                        to={link.url}
                       >
                         {link.name}
-                      </a>
+                      </Link>
                     </motion.li>
                   ))}
                 </ul>

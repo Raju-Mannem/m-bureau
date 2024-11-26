@@ -126,13 +126,13 @@ const Footer = () => {
           <span className="text-xs right-auto">
             Designed and Developed by{" "}
             <Link
-              to="https://zeusit.us/"
+              to="https://in.linkedin.com/in/raju-mannem-604689240"
               className="text-orange-400 hover:text-gray-800 text-sm"
               target="_blank"
               {...itemAnimation}
               transition={{ duration: 1.5, delay: 0.2 }}
             >
-              ZeusIT
+              Raju Mannem
             </Link>
           </span>
         </div>

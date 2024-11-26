@@ -14,6 +14,7 @@ import AdminDashboard from '../AdminDashboard'
 import Profiles from '../Profiles'
 import ProfileView from '../Profiles/ProfileView'
 import { ProfileForm } from '../Profiles/ProfilesForm'
+import NotFound from '../NotFound'
 import { HomeContainer} from './MainStyledComponents'
 
 const Main=()=> {
@@ -39,6 +40,7 @@ const Main=()=> {
               <Dashboard />
             </ProtectedRoute>
           } />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </HomeContainer>
     </div>

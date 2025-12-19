@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useCallback, useState } from "react";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
 import female from "../../assets/female.png";
@@ -6,12 +6,15 @@ import male from "../../assets/male.png";
 import Switcher4 from "../ui/switch";
 import { jsPDF } from "jspdf";
 import { autoTable } from "jspdf-autotable";
+import { toPng } from 'html-to-image';
+
 
 const Index = () => {
   const [isMale, setIsMale] = useState(true);
   const fieldIdRef = useRef(1);
   const [uploadedImage, setUploadedImage] = useState(null);
   const fileInputRef = useRef(null);
+  const screenshotRef = useRef(null)
   const [fields, setFields] = useState([
     {
       id: fieldIdRef.current,
@@ -252,13 +255,31 @@ const Index = () => {
 
     doc.save(`${fullName}-bio-data.pdf`);
   };
+
+  const handleScreenshot = useCallback(() => {
+    if (screenshotRef.current === null) {
+      return
+    }
+
+    toPng(screenshotRef.current, { cacheBust: true, })
+      .then((dataUrl) => {
+        const link = document.createElement('a')
+        link.download = 'my-image-name.png'
+        link.href = dataUrl
+        link.click()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [screenshotRef])
+
   return (
     <div>
       <NavbarDemo />
       <div>
         <div className="flex items-center min-h-screen w-full bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto">
-            <div className="sm:mx-12 my-20 dark:bg-gray-800 sm:p-5 rounded-md shadow-lg">
+            <div className="sm:mx-12 my-20 dark:bg-gray-800 sm:p-5 rounded-md shadow-lg" ref={screenshotRef}>
               <div className="w-full py-4 flex justify-center gap-12 sm:gap-24 items-center bg-green-50 border-2 border-emerald-50 shadow-lg">
                 <img
                   src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/xy4pnmommssiuorbghoe"
@@ -338,6 +359,13 @@ const Index = () => {
                       className="px-4 py-2 bg-blue-500 text-white rounded-md"
                     >
                       Print
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleScreenshot}
+                      className="px-4 py-2 bg-black text-white rounded-md"
+                    >
+                      Download Image
                     </button>
                   </div>
                 </form>

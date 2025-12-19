@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavbarDemo } from '../Navbar'
 import Footer from '../Footer'
 

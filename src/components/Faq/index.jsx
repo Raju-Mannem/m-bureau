@@ -1,4 +1,3 @@
-import React from "react";
 import '@fontsource/roboto';
 
 const Faq = () => {

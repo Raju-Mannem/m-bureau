@@ -1,4 +1,3 @@
-import React from "react";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import ShimmerButton from "../ui/ShimmerButton";
 import RetroGrid from "../ui/RetroGrid";

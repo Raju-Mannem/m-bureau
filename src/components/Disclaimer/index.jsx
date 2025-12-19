@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
@@ -33,7 +32,7 @@ function Disclaimer() {
           <h1 className="about-h1">No Guarantees</h1>
           <p>
             We cannot guarantee that you will find a suitable partner through
-            our services. Every individual's experience is unique, and outcomes
+            our services. Every individual&apos;s experience is unique, and outcomes
             may vary based on personal circumstances and choices.
           </p>
 

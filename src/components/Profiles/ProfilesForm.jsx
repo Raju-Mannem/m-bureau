@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
@@ -46,6 +46,7 @@ export const ProfileForm = () => {
     setLoading(true); // Start loading state
 
     try {
+      // eslint-disable-next-line no-unused-vars
       const response = await axios.post(
         "https://m-bureau-backend.onrender.com/api/profiles",
         formDataToSend,
@@ -128,7 +129,7 @@ export const ProfileForm = () => {
                         htmlFor="fatherName"
                         className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
                       >
-                        Father's Name:
+                        Father&apos;s Name:
                       </label>
                       <input
                         type="text"
@@ -147,7 +148,7 @@ export const ProfileForm = () => {
                         htmlFor="motherName"
                         className="mr-2 text-xs text-gray-600 dark:text-gray-400 w-1/3"
                       >
-                        Mother's Name:
+                        Mother&apos;s Name:
                       </label>
                       <input
                         type="text"

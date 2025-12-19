@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
 import axios from "axios";
@@ -36,7 +36,7 @@ function Adminsignin() {
       localStorage.setItem("users", JSON.stringify(users));
       navigate("/admin-dashboard");
     } catch (error) {
-      setError("Invalid credentials, please try again.");
+      setError("Invalid credentials, please try again."+error);
     } finally {
       setLoading(false); // End loading
     }

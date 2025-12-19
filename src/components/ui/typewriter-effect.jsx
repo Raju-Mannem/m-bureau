@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { cn } from "../../lib/utils";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
@@ -30,6 +31,7 @@ export const TypewriterEffect = ({
         ease: "easeInOut",
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInView]);
 
   const renderWords = () => {

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
@@ -31,7 +30,7 @@ const Dashboard = () => {
         {access === "false"? (
           <div>
           <p className="text-red-500 text-sm">
-            you don't have access to the profiles
+            you don&apos;t have access to the profiles
           </p>
           {payment === "false"? (
             <p className="text-red-500 text-sm">

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "@fontsource/roboto";
@@ -66,6 +66,7 @@ const Footer = () => {
                     { name: "About Us", url: "/about" },
                     { name: "Admin Login", url: "/admin-signin" },
                     { name: "Upload Profiles", url: "/upload-profiles" },
+                    { name: "Create Bio Data", url: "/bio-data" },
                   ].map((link, index) => (
                     <motion.li
                       key={link.name}

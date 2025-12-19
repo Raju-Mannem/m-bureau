@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
 import { Link, useNavigate } from "react-router-dom";
@@ -38,7 +38,7 @@ const Profiles = () => {
       setError(null);
       setDeleteDiv(false);
     } catch (error) {
-      setError("Error deleting profile");
+      setError("Error deleting profile "+error);
     }
   };
 
@@ -51,7 +51,7 @@ const Profiles = () => {
         );
         setProfiles(response.data);
       } catch (error) {
-        setError("Error fetching profiles");
+        setError("Error fetching profiles "+error);
       } finally {
         setLoading(false); // End loading
       }

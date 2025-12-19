@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import {useState} from 'react';
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
 import { GoogleLogin } from "@react-oauth/google";
@@ -28,7 +28,7 @@ const Register = () => {
       // Redirect to dashboard
       window.location.href = '/dashboard'; 
     } catch (error) {
-      setLoginError("unable to signin, backend not responding");
+      setLoginError("unable to signin, backend not responding"+error);
     }
   };
   return (

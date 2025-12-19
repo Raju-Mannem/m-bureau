@@ -1,5 +1,4 @@
-import React from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Contact from '../Contact'
 import Disclaimer from '../Disclaimer'
 import Privacy from '../Privacy'
@@ -14,11 +13,11 @@ import AdminDashboard from '../AdminDashboard'
 import Profiles from '../Profiles'
 import ProfileView from '../Profiles/ProfileView'
 import { ProfileForm } from '../Profiles/ProfilesForm'
+import BioData from '../BioData'
 import NotFound from '../NotFound'
 import { HomeContainer} from './MainStyledComponents'
 
 const Main=()=> {
-    const location = useLocation()
   return (
     <div>
       <HomeContainer>
@@ -33,6 +32,7 @@ const Main=()=> {
         <Route path="/admin-signin" element={<Adminsignin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/upload-profiles" element={<ProfileForm />} />
+        <Route path="/bio-data" element={<BioData />} />
         <Route path="profiles" element={<Profiles />} />
         <Route path="/profile/:id" element={<ProfileView />} />
         <Route path="/dashboard" element={

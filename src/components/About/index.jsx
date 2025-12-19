@@ -1,4 +1,3 @@
-import React from "react";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
 import About1 from "./About1";
@@ -42,7 +41,7 @@ function About() {
             <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div>
           </span>
           <h2 className="sm:text-base py-12 text-[#00bf63] font-bold lg:text-xl pb-8">
-            Thank you for choosing "Krishnaveni Marriage Bureau" as part of
+            Thank you for choosing &quot;Krishnaveni Marriage Bureau&quot; as part of
             your experience. We look forward to helping you find your happy
             life!
           </h2>

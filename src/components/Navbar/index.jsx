@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Menu } from "../ui/navbar-menu";
 import { cn } from "../../lib/utils";
 import "./index.css";
@@ -19,7 +19,9 @@ export function NavbarDemo() {
   );
 }
 
+// eslint-disable-next-line react/prop-types
 function Navbar({ className }) {
+  // eslint-disable-next-line no-unused-vars
   const [active, setActive] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (

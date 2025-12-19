@@ -10,6 +10,8 @@ import { autoTable } from "jspdf-autotable";
 const Index = () => {
   const [isMale, setIsMale] = useState(true);
   const fieldIdRef = useRef(1);
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const fileInputRef = useRef(null);
   const [fields, setFields] = useState([
     {
       id: fieldIdRef.current,
@@ -17,86 +19,86 @@ const Index = () => {
       name: "field_1",
       type: "text",
     },
-     {
-      id: fieldIdRef.current+1,
+    {
+      id: fieldIdRef.current + 1,
       label: "Age",
       name: "field_2",
       type: "number",
     },
     {
-      id: fieldIdRef.current+2,
+      id: fieldIdRef.current + 2,
       label: "Date of Birth",
       name: "field_3",
       type: "text",
     },
     {
-      id: fieldIdRef.current+3,
+      id: fieldIdRef.current + 3,
       label: "Birth Time",
       name: "field_4",
       type: "text",
     },
     {
-      id: fieldIdRef.current+4,
+      id: fieldIdRef.current + 4,
       label: "Occupatioin / Profession",
       name: "field_5",
       type: "text",
     },
     {
-      id: fieldIdRef.current+5,
+      id: fieldIdRef.current + 5,
       label: "Caste",
       name: "field_6",
       type: "text",
     },
     {
-      id: fieldIdRef.current+6,
+      id: fieldIdRef.current + 6,
       label: "Star",
       name: "field_7",
       type: "text",
     },
     {
-      id: fieldIdRef.current+7,
+      id: fieldIdRef.current + 7,
       label: "gothram",
       name: "field_8",
       type: "text",
     },
     {
-      id: fieldIdRef.current+8,
+      id: fieldIdRef.current + 8,
       label: "Location",
       name: "field_9",
       type: "text",
     },
     {
-      id: fieldIdRef.current+9,
+      id: fieldIdRef.current + 9,
       label: "Father Name",
       name: "field_10",
       type: "text",
     },
     {
-      id: fieldIdRef.current+10,
+      id: fieldIdRef.current + 10,
       label: "Father Occupation",
       name: "field_11",
       type: "text",
     },
     {
-      id: fieldIdRef.current+11,
+      id: fieldIdRef.current + 11,
       label: "Mother Name",
       name: "field_12",
       type: "text",
     },
     {
-      id: fieldIdRef.current+12,
+      id: fieldIdRef.current + 12,
       label: "Mother Occupation",
       name: "field_13",
       type: "text",
     },
     {
-      id: fieldIdRef.current+13,
+      id: fieldIdRef.current + 13,
       label: "Siblings",
       name: "field_14",
       type: "text",
     },
     {
-      id: fieldIdRef.current+14,
+      id: fieldIdRef.current + 14,
       label: "Property",
       name: "field_15",
       type: "text",
@@ -143,15 +145,34 @@ const Index = () => {
     });
   };
 
+  const handleImageClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const imageURL = URL.createObjectURL(file);
+    setUploadedImage(imageURL);
+  };
+
   const handlePdf = (e) => {
     e.preventDefault();
-    console.log(formData)
+    console.log(formData);
     const doc = new jsPDF();
     doc.setFillColor(245, 248, 255);
-    doc.rect(0,0,doc.internal.pageSize.getWidth(),doc.internal.pageSize.getHeight(),"F");
+    doc.rect(
+      0,
+      0,
+      doc.internal.pageSize.getWidth(),
+      doc.internal.pageSize.getHeight(),
+      "F"
+    );
 
-    const imgURL = "https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/xy4pnmommssiuorbghoe";
-    const genderImg = isMale?male:female;
+    const imgURL =
+      "https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/xy4pnmommssiuorbghoe";
+    const genderImg = uploadedImage || (isMale ? male : female);
 
     // ---- Combined Box ----
     const boxX = 20;
@@ -169,67 +190,67 @@ const Index = () => {
     const padding = 5;
 
     doc.addImage(
-    imgURL,
-    "PNG",
-    boxX + padding +35,
-    boxY + padding,
-    imgSize+10,
-    imgSize
-  );
+      imgURL,
+      "PNG",
+      boxX + padding + 35,
+      boxY + padding,
+      imgSize + 10,
+      imgSize
+    );
 
-   doc.addImage(
-    genderImg,
-    "PNG",
-    boxX + padding + imgSize + 60,
-    boxY + padding,
-    imgSize-12,
-    imgSize
-  );
+    doc.addImage(
+      genderImg,
+      "PNG",
+      boxX + padding + imgSize + 60,
+      boxY + padding,
+      imgSize - 12,
+      imgSize
+    );
 
     // doc.addImage(imgURL, "PNG", 60, 10, 30, 30);
     // doc.addImage(gender, "PNG", 120, 10, 30, 30);
 
-     const fullName = formData["field_1"] || "User";
-     doc.setFontSize(16);
+    const fullName = formData["field_1"] || "User";
+    doc.setFontSize(16);
     //  doc.text(`${fullName} Bio Data`, 14, 50);
 
-     const tableBody = fields.map((field, index) => [
-    index + 1,
-    field.label,
-    formData[field.name] || "-", // show "-" if empty
-  ]);
-  autoTable(doc, {
-    startY: 60,
-    head: [["S.No", "Field", "Details"]],
-    body: tableBody,
-    theme: "grid",
-    styles: {
-      fontSize: 10,
-      cellPadding: 4,
-      lineColor: [180, 180, 180],  // border color
-      valign: "middle",
-    },
-    headStyles: {
-      fillColor: [22, 160, 133],
-      textColor: 255,
-      fontStyle: "bold",
-      // halign: "center",
-    },
-    bodyStyles: {
-    fillColor: [245, 248, 255], // light blue
-  },
-  alternateRowStyles: {
-    fillColor: [255, 255, 255], // white
-  },
+    const tableBody = fields.map((field, index) => [
+      index + 1,
+      field.label,
+      formData[field.name] || "-", // show "-" if empty
+    ]);
+    autoTable(doc, {
+      startY: 60,
+      head: [["S.No", "Field", "Details"]],
+      body: tableBody,
+      theme: "grid",
+      styles: {
+        fontSize: 10,
+        cellPadding: 4,
+        lineColor: [180, 180, 180], // border color
+        valign: "middle",
+      },
+      headStyles: {
+        fillColor: [22, 160, 133],
+        textColor: 255,
+        fontStyle: "bold",
+        // halign: "center",
+      },
+      bodyStyles: {
+        fillColor: [245, 248, 255], // light blue
+      },
+      alternateRowStyles: {
+        fillColor: [255, 255, 255], // white
+      },
 
-    columnStyles: {
-      0: { cellWidth: 20 }, // S.No
-      1: { cellWidth: 60 }, // Label
-      2: { cellWidth: 100 }, // Value
-    },
-  });
+      columnStyles: {
+        0: { cellWidth: 20 }, // S.No
+        1: { cellWidth: 60 }, // Label
+        2: { cellWidth: 100 }, // Value
+      },
+    });
 
-  doc.save(`${fullName}-bio-data.pdf`);
+    doc.save(`${fullName}-bio-data.pdf`);
   };
   return (
     <div>
@@ -246,71 +267,79 @@ const Index = () => {
                 />
                 <div className="flex flex-col items-center justify-center gap-2">
                   <img
-                    src={isMale ? male : female}
+                    src={uploadedImage || (isMale ? male : female)}
+                    onClick={handleImageClick}
                     className="w-auto h-[60px] sm:h-[120px] bg-gray-100 px-4 sm:px-8 py sm:py-4 rounded-full"
-                    alt="gender"
+                    alt="profile"
                   />
-                  <Switcher4 setIsMale={setIsMale} />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    ref={fileInputRef}
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+                  <Switcher4 setIsMale={setIsMale} setUploadedImage={setUploadedImage} />
                 </div>
               </div>
               <div className="px-2 sm:px-40 py-6 bg-indigo-100">
                 <form onSubmit={handlePdf}>
-                    {fields.map((field, index) => (
-                      <div key={index} className="mb-4 flex gap-3 items-center">
-                        {/* Editable Label */}
-                        <input
-                          type="text"
-                          value={field.label}
-                          onChange={(e) =>
-                            handleLabelChange(field.id, e.target.value)
-                          }
-                          className="w-2/3 p-2 text-xs border rounded-md"
-                          placeholder="Label"
-                        />
+                  {fields.map((field, index) => (
+                    <div key={index} className="mb-4 flex gap-3 items-center">
+                      {/* Editable Label */}
+                      <input
+                        type="text"
+                        value={field.label}
+                        onChange={(e) =>
+                          handleLabelChange(field.id, e.target.value)
+                        }
+                        className="w-2/3 p-2 text-xs border rounded-md"
+                        placeholder="Label"
+                      />
 
-                        {/* Field Value */}
-                        <input
-                          type={field.type}
-                          name={field.name}
-                          value={formData[field.name] || ""}
-                          onChange={handleChange}
-                          className="w-2/3 p-2 text-xs border rounded-md"
-                          placeholder={`Enter ${field.label}`}
-                        />
+                      {/* Field Value */}
+                      <input
+                        type={field.type}
+                        name={field.name}
+                        value={formData[field.name] || ""}
+                        onChange={handleChange}
+                        className="w-2/3 p-2 text-xs border rounded-md"
+                        placeholder={`Enter ${field.label}`}
+                      />
 
-                        {/* Remove Button */}
-                        <button
-                          type="button"
-                          onClick={() => removeField(field.id, field.name)}
-                          disabled={fields.length === 1}
-                          className={`px-2 sm:px-4 py sm:py-1 rounded-md text-white ${
-                            fields.length === 1
-                              ? "bg-gray-300 cursor-not-allowed"
-                              : "bg-red-500 hover:bg-red-600"
-                          }`}
-                          title="Remove field"
-                        >
-                          x
-                        </button>
-                      </div>
-                    ))}
-
-                    <div className="flex gap-4 mt-6 text-xs">
+                      {/* Remove Button */}
                       <button
                         type="button"
-                        onClick={addField}
-                        className="px-4 py-2 bg-green-500 text-white rounded-md"
+                        onClick={() => removeField(field.id, field.name)}
+                        disabled={fields.length === 1}
+                        className={`px-2 sm:px-4 py sm:py-1 rounded-md text-white ${
+                          fields.length === 1
+                            ? "bg-gray-300 cursor-not-allowed"
+                            : "bg-red-500 hover:bg-red-600"
+                        }`}
+                        title="Remove field"
                       >
-                        + Add Field
-                      </button>
-
-                      <button
-                        type="submit"
-                        className="px-4 py-2 bg-blue-500 text-white rounded-md"
-                      >
-                        Print
+                        x
                       </button>
                     </div>
+                  ))}
+
+                  <div className="flex gap-4 mt-6 text-xs">
+                    <button
+                      type="button"
+                      onClick={addField}
+                      className="px-4 py-2 bg-green-500 text-white rounded-md"
+                    >
+                      + Add Field
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="px-4 py-2 bg-blue-500 text-white rounded-md"
+                    >
+                      Print
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>

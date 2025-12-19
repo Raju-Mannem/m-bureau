@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 
-const Switcher4 = ({ setIsMale }) => {
+const Switcher4 = ({ setIsMale, setUploadedImage }) => {
   const [isChecked, setIsChecked] = useState(false)
 
   const handleCheckboxChange = () => {
+    setUploadedImage(null);
     setIsMale(e=>!e);
     setIsChecked(!isChecked)
   }

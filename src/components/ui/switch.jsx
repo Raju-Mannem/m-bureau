@@ -20,12 +20,12 @@ const Switcher4 = ({ setIsMale }) => {
             className='sr-only'
           />
           <div
-            className={`box block h-6 w-12 rounded-full ${
+            className={`box block h-4 sm:h-6 w-8 sm:w-12 rounded-full ${
               isChecked ? 'bg-blue-600' : 'bg-gray-800'
             }`}
           ></div>
           <div
-            className={`absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-white transition ${
+            className={`absolute left-1 top-1 flex h-2 sm:h-4 w-3 sm:w-4 items-center justify-center rounded-full bg-white transition ${
               isChecked ? 'translate-x-full' : ''
             }`}
           ></div>

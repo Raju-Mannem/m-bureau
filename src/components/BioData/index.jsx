@@ -27,24 +27,78 @@ const Index = () => {
       id: fieldIdRef.current+2,
       label: "Date of Birth",
       name: "field_3",
-      type: "date",
+      type: "text",
     },
     {
       id: fieldIdRef.current+3,
-      label: "Caste",
+      label: "Birth Time",
       name: "field_4",
       type: "text",
     },
     {
       id: fieldIdRef.current+4,
-      label: "Occupatioin",
+      label: "Occupatioin / Profession",
       name: "field_5",
       type: "text",
     },
     {
       id: fieldIdRef.current+5,
-      label: "Location",
+      label: "Caste",
       name: "field_6",
+      type: "text",
+    },
+    {
+      id: fieldIdRef.current+6,
+      label: "Star",
+      name: "field_7",
+      type: "text",
+    },
+    {
+      id: fieldIdRef.current+7,
+      label: "gothram",
+      name: "field_8",
+      type: "text",
+    },
+    {
+      id: fieldIdRef.current+8,
+      label: "Location",
+      name: "field_9",
+      type: "text",
+    },
+    {
+      id: fieldIdRef.current+9,
+      label: "Father Name",
+      name: "field_10",
+      type: "text",
+    },
+    {
+      id: fieldIdRef.current+10,
+      label: "Father Occupation",
+      name: "field_11",
+      type: "text",
+    },
+    {
+      id: fieldIdRef.current+11,
+      label: "Mother Name",
+      name: "field_12",
+      type: "text",
+    },
+    {
+      id: fieldIdRef.current+12,
+      label: "Mother Occupation",
+      name: "field_13",
+      type: "text",
+    },
+    {
+      id: fieldIdRef.current+13,
+      label: "Siblings",
+      name: "field_14",
+      type: "text",
+    },
+    {
+      id: fieldIdRef.current+14,
+      label: "Property",
+      name: "field_15",
       type: "text",
     },
   ]);
@@ -183,23 +237,23 @@ const Index = () => {
       <div>
         <div className="flex items-center min-h-screen w-full bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto">
-            <div className="mx-12 my-20 dark:bg-gray-800 p-5 rounded-md shadow-lg">
-              <div className="w-full py-4 flex justify-center gap-24 items-center bg-green-50 border-2 border-emerald-50 shadow-lg">
+            <div className="sm:mx-12 my-20 dark:bg-gray-800 sm:p-5 rounded-md shadow-lg">
+              <div className="w-full py-4 flex justify-center gap-12 sm:gap-24 items-center bg-green-50 border-2 border-emerald-50 shadow-lg">
                 <img
                   src="https://res.cloudinary.com/dhxtw97su/image/upload/f_auto,q_auto/v1/marriage-bureau/xy4pnmommssiuorbghoe"
                   alt="Krishnaveni Marriage Bureau"
-                  className="w-auto h-32 inline-block px-4 mx-4"
+                  className="w-auto h-12 sm:h-32 inline-block sm:px-4 sm:mx-4"
                 />
                 <div className="flex flex-col items-center justify-center gap-2">
                   <img
                     src={isMale ? male : female}
-                    className="w-[120px] h-[120px] bg-gray-100 px-8 py-4 rounded-full"
+                    className="w-auto h-[60px] sm:h-[120px] bg-gray-100 px-4 sm:px-8 py sm:py-4 rounded-full"
                     alt="gender"
                   />
                   <Switcher4 setIsMale={setIsMale} />
                 </div>
               </div>
-              <div className="pl-80 py-6 bg-indigo-100">
+              <div className="px-2 sm:px-40 py-6 bg-indigo-100">
                 <form onSubmit={handlePdf}>
                     {fields.map((field, index) => (
                       <div key={index} className="mb-4 flex gap-3 items-center">
@@ -210,7 +264,7 @@ const Index = () => {
                           onChange={(e) =>
                             handleLabelChange(field.id, e.target.value)
                           }
-                          className="w-1/4 p-2 text-xs border rounded-md"
+                          className="w-2/3 p-2 text-xs border rounded-md"
                           placeholder="Label"
                         />
 
@@ -220,7 +274,7 @@ const Index = () => {
                           name={field.name}
                           value={formData[field.name] || ""}
                           onChange={handleChange}
-                          className="w-1/4 p-2 text-xs border rounded-md"
+                          className="w-2/3 p-2 text-xs border rounded-md"
                           placeholder={`Enter ${field.label}`}
                         />
 
@@ -229,14 +283,14 @@ const Index = () => {
                           type="button"
                           onClick={() => removeField(field.id, field.name)}
                           disabled={fields.length === 1}
-                          className={`px-2 py-1 rounded-md text-white ${
+                          className={`px-2 sm:px-4 py sm:py-1 rounded-md text-white ${
                             fields.length === 1
                               ? "bg-gray-300 cursor-not-allowed"
                               : "bg-red-500 hover:bg-red-600"
                           }`}
                           title="Remove field"
                         >
-                          ❌
+                          x
                         </button>
                       </div>
                     ))}

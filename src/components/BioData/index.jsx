@@ -40,6 +40,12 @@ const Index = () => {
       name: "field_4",
       type: "text",
     },
+	{
+      id: fieldIdRef.current + 15,
+      label: "Education",
+      name: "field_15",
+      type: "text",
+    },
     {
       id: fieldIdRef.current + 4,
       label: "Occupatioin / Profession",

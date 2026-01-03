@@ -14,6 +14,8 @@ import Profiles from '../Profiles'
 import ProfileView from '../Profiles/ProfileView'
 import { ProfileForm } from '../Profiles/ProfilesForm'
 import BioData from '../BioData'
+import BioDataList from '../AdminDashboard/BioDataList';
+import BioDataDetails from '../AdminDashboard/BioDataDetails';
 import NotFound from '../NotFound'
 import { HomeContainer} from './MainStyledComponents'
 
@@ -35,6 +37,8 @@ const Main=()=> {
         <Route path="/bio-data" element={<BioData />} />
         <Route path="profiles" element={<Profiles />} />
         <Route path="/profile/:id" element={<ProfileView />} />
+        <Route path="/admin/biodata" element={<BioDataList />} />
+        <Route path="/bio-data/:id" element={<BioData />} />
         <Route path="/dashboard" element={
             <ProtectedRoute>
               <Dashboard />

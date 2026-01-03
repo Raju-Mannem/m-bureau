@@ -36,7 +36,7 @@ const BioDataList = () => {
         const fetchProfiles = async () => {
             setLoading(true);
             try {
-                let url = "http://localhost:5000/api/biodata";
+                let url = `${import.meta.env.VITE_API_URL}/biodata`;
                 if (selectedYear) {
                     url += `?year=${selectedYear}`;
                 }

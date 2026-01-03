@@ -294,7 +294,7 @@ const Index = () => {
             setFetching(true);
             try {
                 // Using VITE_API_URL if possible, but keeping standard for now based on context
-                const res = await axios.get(`http://localhost:5000/api/biodata/${id}`);
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/biodata/${id}`);
                 const data = res.data;
                 
                 if (data) {
@@ -385,11 +385,11 @@ const Index = () => {
              formDataToSend.append('image', fileInputRef.current.files[0]);
         }
         
-        let url = 'http://localhost:5000/api/biodata';
+        let url = `${import.meta.env.VITE_API_URL}/biodata`;
         let method = 'post';
 
         if (id) {
-            url = `http://localhost:5000/api/biodata/${id}`;
+            url = `${import.meta.env.VITE_API_URL}/biodata/${id}`;
             method = 'put';
         }
 
@@ -417,7 +417,7 @@ const Index = () => {
       if(!window.confirm("Are you sure you want to delete this BioData? This cannot be undone.")) return;
 
       try {
-          await axios.delete(`http://localhost:5000/api/biodata/${id}`);
+          await axios.delete(`${import.meta.env.VITE_API_URL}/biodata/${id}`);
           alert("BioData deleted successfully");
           navigate('/admin/biodata'); // Go back to list
       } catch (error) {

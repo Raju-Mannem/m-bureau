@@ -176,7 +176,6 @@ const Index = () => {
 
   const handlePdf = (e) => {
     e.preventDefault();
-    console.log(formData);
     const doc = new jsPDF();
     doc.setFillColor(245, 248, 255);
     doc.rect(

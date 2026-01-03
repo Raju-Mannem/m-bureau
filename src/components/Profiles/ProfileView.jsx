@@ -13,7 +13,7 @@ function ProfileView() {
     const fetchProfile = async () => {
       try {
         const response = await axios.get(
-          `https://m-bureau-backend.onrender.com/api/profiles/${id}`
+          `${import.meta.env.VITE_API_URL}/profiles/${id}`
         );
         setProfile(response.data);
       } catch (error) {

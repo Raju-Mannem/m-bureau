@@ -33,7 +33,7 @@ const Profiles = () => {
 
   const handleDeleteProfile = async (id) => {
     try {
-      await axios.delete(`https://m-bureau-backend.onrender.com/api/profiles/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/profiles/${id}`);
       setProfiles(profiles.filter((profile) => profile._id !== id));
       setError(null);
       setDeleteDiv(false);
@@ -47,7 +47,7 @@ const Profiles = () => {
       setLoading(true); // Start loading
       try {
         const response = await axios.get(
-          "https://m-bureau-backend.onrender.com/api/profiles"
+          `${import.meta.env.VITE_API_URL}/profiles`
         );
         setProfiles(response.data);
       } catch (error) {

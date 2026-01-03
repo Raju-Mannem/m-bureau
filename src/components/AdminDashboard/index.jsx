@@ -78,6 +78,12 @@ const AdminDashboard = () => {
             >
               Upload Profiles
             </Link>
+            <Link
+              to="/admin/biodata"
+              className="bg-blue-400 text-xs text-white px-4 py-1 rounded-full font-bold focus:outline-none mx-2"
+            >
+              View BioData
+            </Link>
             <button
               onClick={handleLogout}
               className="bg-green-400 focus:outline-none text-white text-xs lg:text-sm font-bold py-1 px-4 rounded-full mx-2 my-4"

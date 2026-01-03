@@ -1,4 +1,5 @@
-import { useRef, useCallback, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { NavbarDemo } from "../Navbar";
 import Footer from "../Footer";
 import female from "../../assets/female.png";
@@ -7,6 +8,8 @@ import Switcher4 from "../ui/switch";
 import { jsPDF } from "jspdf";
 import { autoTable } from "jspdf-autotable";
 import { toPng } from 'html-to-image';
+import axios from 'axios';
+import PDFUpload from "./PDFUpload";
 
 
 const Index = () => {
@@ -15,23 +18,28 @@ const Index = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const fileInputRef = useRef(null);
   const screenshotRef = useRef(null)
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false); // Global or AI loading
+  const [fetching, setFetching] = useState(false); // Fetching existing data
   const [fields, setFields] = useState([
     {
-      id: fieldIdRef.current - 13,
+      id: fieldIdRef.current - 15,
       label: "Full Name",
-      name: "field_14",
+      name: "field_16",
       type: "text",
     },
     {
-      id: fieldIdRef.current - 12,
+      id: fieldIdRef.current - 14,
       label: "Age",
-      name: "field_13",
+      name: "field_15",
       type: "number",
     },
     {
       id: fieldIdRef.current - 13,
       label: "Date of Birth",
-      name: "field_12",
+      name: "field_14",
       type: "text",
     },
     {
@@ -219,7 +227,7 @@ const Index = () => {
     // doc.addImage(imgURL, "PNG", 60, 10, 30, 30);
     // doc.addImage(gender, "PNG", 120, 10, 30, 30);
 
-    const fullName = formData["field_1"] || "User";
+    const fullName = formData["field_16"] || "User";
     doc.setFontSize(16);
     //  doc.text(`${fullName} Bio Data`, 14, 50);
 
@@ -262,7 +270,7 @@ const Index = () => {
     doc.save(`${fullName}-bio-data.pdf`);
   };
 
-  const handleScreenshot = useCallback(() => {
+  const handleScreenshot = () => {
     if (screenshotRef.current === null) {
       return
     }
@@ -277,7 +285,147 @@ const Index = () => {
       .catch((err) => {
         console.log(err)
       })
-  }, [screenshotRef])
+  }
+
+  // Fetch existing data if ID is present
+  useEffect(() => {
+    if (id) {
+        const fetchBioData = async () => {
+            setFetching(true);
+            try {
+                // Using VITE_API_URL if possible, but keeping standard for now based on context
+                const res = await axios.get(`http://localhost:5000/api/biodata/${id}`);
+                const data = res.data;
+                
+                if (data) {
+                    // Populate fields and formData
+                    const newFields = [];
+                    const newFormData = {};
+                    let nextId = 1;
+                    
+                    if (data.data && Array.isArray(data.data)) {
+                        data.data.forEach((item) => {
+                            const fieldName = `field_${nextId}`;
+                            newFields.push({
+                                id: nextId,
+                                label: item.label,
+                                name: fieldName,
+                                type: "text",
+                            });
+                            newFormData[fieldName] = item.value;
+                            nextId++;
+                        });
+                        setFields(newFields);
+                        setFormData(newFormData);
+                        fieldIdRef.current = nextId;
+                    }
+
+                    // Populate Image and Gender
+                    // If backend sends imageUrl, use it.
+                    // If not, we rely on isMale to show default.
+                    if (data.imageUrl) {
+                        setUploadedImage(data.imageUrl);
+                    } else {
+                        setUploadedImage(null);
+                    }
+                    
+                    if (data.isMale !== undefined) {
+                        setIsMale(data.isMale);
+                    }
+                }
+            } catch (err) {
+                console.error("Error fetching biodata", err);
+                alert("Failed to load BioData");
+            } finally {
+                setFetching(false);
+            }
+        };
+        fetchBioData();
+    }
+  }, [id]);
+
+  const handleAIDataExtracted = (data) => {
+    if (!data || data.length === 0) return;
+
+    const newFields = [];
+    const newFormData = {};
+    let nextId = 1;
+
+    data.forEach((item) => {
+        const fieldName = `field_${nextId}`;
+        newFields.push({
+            id: nextId,
+            label: item.label,
+            name: fieldName,
+            type: "text",
+        });
+        newFormData[fieldName] = item.value;
+        nextId++;
+    });
+
+    fieldIdRef.current = nextId;
+    setFields(newFields);
+    setFormData(newFormData);
+  };
+
+  const handleSave = async () => {
+    try {
+        const formDataToSend = new FormData();
+        
+        // Prepare data as label-value pairs
+        const dataToSave = fields.map(field => ({
+            label: field.label,
+            value: formData[field.name] || ""
+        }));
+
+        formDataToSend.append('data', JSON.stringify(dataToSave));
+        formDataToSend.append('isMale', isMale);
+
+        if (fileInputRef.current && fileInputRef.current.files[0]) {
+             formDataToSend.append('image', fileInputRef.current.files[0]);
+        }
+        
+        let url = 'http://localhost:5000/api/biodata';
+        let method = 'post';
+
+        if (id) {
+            url = `http://localhost:5000/api/biodata/${id}`;
+            method = 'put';
+        }
+
+        await axios({
+            method: method,
+            url: url,
+            data: formDataToSend,
+            headers: { 'Content-Type': 'multipart/form-data' }
+        });
+
+        alert(`BioData ${id ? 'updated' : 'saved'} successfully!`);
+        if(!id) {
+             // Maybe navigate to list or just stay? 
+             // Determine if user is admin or regular. 
+        }
+
+    } catch (error) {
+        console.error("Save Error:", error);
+        alert("Failed to save BioData.");
+    }
+  };
+
+  const handleDelete = async () => {
+      if(!id) return;
+      if(!window.confirm("Are you sure you want to delete this BioData? This cannot be undone.")) return;
+
+      try {
+          await axios.delete(`http://localhost:5000/api/biodata/${id}`);
+          alert("BioData deleted successfully");
+          navigate('/admin/biodata'); // Go back to list
+      } catch (error) {
+          console.error("Delete Error", error);
+          alert("Failed to delete BioData");
+      }
+  };
+
 
   return (
     <div>
@@ -310,6 +458,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="px-2 sm:px-40 py-6 bg-indigo-100">
+                <PDFUpload onDataExtracted={handleAIDataExtracted} />
                 <form onSubmit={handlePdf}>
                   {fields.map((field, index) => (
                     <div key={index} className="mb-4 flex gap-3 items-center">
@@ -351,7 +500,7 @@ const Index = () => {
                     </div>
                   ))}
 
-                  <div className="flex gap-4 mt-6 text-xs">
+                  <div className="flex gap-4 mt-6 text-xs flex-wrap">
                     <button
                       type="button"
                       onClick={addField}
@@ -361,15 +510,34 @@ const Index = () => {
                     </button>
 
                     <button
+                      type="button"
+                      onClick={handleSave}
+                      className="px-4 py-2 bg-white text-green-500 border-2 border-green-500 rounded-md"
+                    >
+                      {id ? "Update" : "Save"}
+                    </button>
+
+                     {id && (
+                        <button
+                          type="button"
+                          onClick={handleDelete}
+                          className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                        >
+                          Delete
+                        </button>
+                     )}
+                    
+                    <button
                       type="submit"
                       className="px-4 py-2 bg-blue-500 text-white rounded-md"
                     >
                       Print
                     </button>
+
                     <button
                       type="button"
                       onClick={handleScreenshot}
-                      className="px-4 py-2 bg-black text-white rounded-md"
+                      className="px-4 py-2 bg-white text-blue-500 border-2 border-blue-500 rounded-md"
                     >
                       Download Image
                     </button>

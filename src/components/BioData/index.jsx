@@ -176,7 +176,7 @@ const Index = () => {
 
   const handlePdf = (e) => {
     e.preventDefault();
-    const doc = new jsPDF();
+    const doc = new jsPDF({});
     doc.setFillColor(245, 248, 255);
     doc.rect(
       0,
@@ -226,7 +226,7 @@ const Index = () => {
     // doc.addImage(imgURL, "PNG", 60, 10, 30, 30);
     // doc.addImage(gender, "PNG", 120, 10, 30, 30);
 
-    const fullName = formData["field_16"] || "User";
+    const fullName = formData["field_1"] || "User";
     doc.setFontSize(16);
     //  doc.text(`${fullName} Bio Data`, 14, 50);
 
@@ -239,8 +239,11 @@ const Index = () => {
       startY: 60,
       head: [["S.No", "Field", "Details"]],
       body: tableBody,
+      width: "auto",
       theme: "grid",
       styles: {
+        overflow: 'linebreak',
+        cellWidth: 'auto',
         fontSize: 10,
         cellPadding: 4,
         lineColor: [180, 180, 180], // border color
@@ -260,7 +263,7 @@ const Index = () => {
       },
 
       columnStyles: {
-        0: { cellWidth: 20 }, // S.No
+        0: { cellWidth: 16 }, // S.No
         1: { cellWidth: 60 }, // Label
         2: { cellWidth: 100 }, // Value
       },
@@ -274,10 +277,15 @@ const Index = () => {
       return
     }
 
-    toPng(screenshotRef.current, { cacheBust: true, })
+    toPng(screenshotRef.current, { cacheBust: true, filter: (node) => {
+    if (node.classList?.contains('no-print')) {
+      return false;
+    }
+    return true;
+  },})
       .then((dataUrl) => {
         const link = document.createElement('a')
-        link.download = 'my-image-name.png'
+        link.download = `${formData["field_1"]}-bio-data.png` || "bio-data.png"
         link.href = dataUrl
         link.click()
       })
@@ -292,7 +300,6 @@ const Index = () => {
         const fetchBioData = async () => {
             setFetching(true);
             try {
-                // Using VITE_API_URL if possible, but keeping standard for now based on context
                 const res = await axios.get(`${import.meta.env.VITE_API_URL}/biodata/${id}`);
                 const data = res.data;
                 
@@ -319,9 +326,6 @@ const Index = () => {
                         fieldIdRef.current = nextId;
                     }
 
-                    // Populate Image and Gender
-                    // If backend sends imageUrl, use it.
-                    // If not, we rely on isMale to show default.
                     if (data.imageUrl) {
                         setUploadedImage(data.imageUrl);
                     } else {
@@ -453,11 +457,15 @@ const Index = () => {
                     onChange={handleImageUpload}
                     className="hidden"
                   />
+                  <div className="no-print">
                   <Switcher4 setIsMale={setIsMale} setUploadedImage={setUploadedImage} />
+                  </div>
                 </div>
               </div>
               <div className="px-2 sm:px-40 py-6 bg-indigo-100">
+                <div className="no-print">
                 <PDFUpload onDataExtracted={handleAIDataExtracted} />
+                </div>
                 <form onSubmit={handlePdf}>
                   {fields.map((field, index) => (
                     <div key={index} className="mb-4 flex gap-3 items-center">
@@ -487,7 +495,7 @@ const Index = () => {
                         type="button"
                         onClick={() => removeField(field.id, field.name)}
                         disabled={fields.length === 1}
-                        className={`px-2 sm:px-4 py sm:py-1 rounded-md text-white ${
+                        className={`no-print px-2 sm:px-4 py sm:py-1 rounded-md text-white ${
                           fields.length === 1
                             ? "bg-gray-300 cursor-not-allowed"
                             : "bg-red-500 hover:bg-red-600"
@@ -499,7 +507,7 @@ const Index = () => {
                     </div>
                   ))}
 
-                  <div className="flex gap-4 mt-6 text-xs flex-wrap">
+                  <div className="no-print flex gap-4 mt-6 text-xs flex-wrap">
                     <button
                       type="button"
                       onClick={addField}

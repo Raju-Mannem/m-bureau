@@ -350,8 +350,10 @@ const Index = () => {
   }, [id]);
 
 const handleRawText = async (rawText) => {
+	setLoading(true);
 	const data = await extractDataWithAI(rawText);
 	handleAIDataExtracted(data);
+	setLoading(false);
 }
 
   const handleAIDataExtracted = (data) => {
@@ -486,7 +488,7 @@ const handleRawText = async (rawText) => {
 					}
 					className="px-2 py-2 bg-black/80 text-xs text-white rounded-md hover:bg-black"
 					>
-						extract
+						fill
 					</button>
 				</div>
                 </div>

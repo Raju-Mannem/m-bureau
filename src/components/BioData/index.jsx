@@ -10,6 +10,7 @@ import { autoTable } from "jspdf-autotable";
 import { toPng } from 'html-to-image';
 import axios from 'axios';
 import PDFUpload from "./PDFUpload";
+import { extractDataWithAI } from '../../utils/ai';
 
 
 const Index = () => {
@@ -22,6 +23,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false); // Global or AI loading
+  const [rawText, setRawText] = useState(" ");
   const [fetching, setFetching] = useState(false); // Fetching existing data
   const [fields, setFields] = useState([
     {
@@ -347,6 +349,11 @@ const Index = () => {
     }
   }, [id]);
 
+const handleRawText = async (rawText) => {
+	const data = await extractDataWithAI(rawText);
+	handleAIDataExtracted(data);
+}
+
   const handleAIDataExtracted = (data) => {
     if (!data || data.length === 0) return;
 
@@ -406,7 +413,7 @@ const Index = () => {
         alert(`BioData ${id ? 'updated' : 'saved'} successfully!`);
         if(!id) {
              // Maybe navigate to list or just stay? 
-             // Determine if user is admin or regular. 
+			 navigate('/home');
         }
 
     } catch (error) {
@@ -463,8 +470,25 @@ const Index = () => {
                 </div>
               </div>
               <div className="px-2 sm:px-40 py-6 bg-indigo-100">
-                <div className="no-print">
+                <div className="no-print flex justify-center items-center p-4 gap-2 bg-black/10 mb-2">
                 <PDFUpload onDataExtracted={handleAIDataExtracted} />
+				<div className="flex flex-col justify-center items-center gap-2">
+					<textarea 
+						value={rawText}
+						onChange={ (e) =>
+							setRawText(e.target.value)
+						}
+						className="w-[80px] sm:w-[300px] h-[80px] sm:h-[120px] p-2 text-xs border rounded-md placeholder:text-gray-500"
+						placeholder="raw text"
+					/>
+					<button type="button" onClick={ (e) =>
+					handleRawText(rawText)
+					}
+					className="px-2 py-2 bg-black/80 text-xs text-white rounded-md hover:bg-black"
+					>
+						extract
+					</button>
+				</div>
                 </div>
                 <form onSubmit={handlePdf}>
                   {fields.map((field, index) => (

@@ -1,5 +1,5 @@
-
 import * as pdfjsLib from 'pdfjs-dist';
+import { extractTextFromImage } from "./ocr";
 
 // Configuring the worker
 // Using the ES module worker for better compatibility with Vite
@@ -23,6 +23,11 @@ export const extractTextFromPDF = async (file) => {
     const textContent = await page.getTextContent();
     const pageText = textContent.items.map((item) => item.str).join(' ');
     fullText += pageText + '\n';
+  }
+  
+  if (!fullText.trim()) {
+//    console.warn("No text found in PDF. Falling back to OCR...");
+    return await extractTextFromImage(file);
   }
 
   return fullText;

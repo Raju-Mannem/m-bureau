@@ -23,7 +23,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false); // Global or AI loading
-  const [rawText, setRawText] = useState(" ");
+  const [rawText, setRawText] = useState("");
   const [fetching, setFetching] = useState(false); // Fetching existing data
   const [fields, setFields] = useState([
     {

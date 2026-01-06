@@ -580,6 +580,9 @@ const handleRawText = async (rawText) => {
             </div>
           </div>
         </div>
+		{loading&& (
+	  <div className="fixed top-4 right-0 left-0 w-screen h-screen bg-black/40 animate-pulse" />
+	  )}
       </div>
       <Footer />
     </div>

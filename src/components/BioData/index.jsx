@@ -414,8 +414,7 @@ const handleRawText = async (rawText) => {
 
         alert(`BioData ${id ? 'updated' : 'saved'} successfully!`);
         if(!id) {
-             // Maybe navigate to list or just stay? 
-			 navigate('/home');
+             // just stay? 
         }
 
     } catch (error) {

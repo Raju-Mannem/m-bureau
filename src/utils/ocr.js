@@ -1,64 +1,73 @@
 import Tesseract from "tesseract.js";
 
 /**
- * Preprocesses the image using Canvas to improve OCR accuracy
- * @param {File | Blob} file 
- * @returns {Promise<string>} - Returns a base64 string of the processed image
+ * Preprocess an image (canvas) to improve OCR accuracy
+ * @param {HTMLImageElement | HTMLCanvasElement} img 
+ * @param {number} scale - factor to upscale image
+ * @returns {HTMLCanvasElement}
  */
-const preprocessImage = (file) => {
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
+const preprocessImage = (img, scale = 2) => {
+  // Create a canvas
+  const canvas = document.createElement("canvas");
+  canvas.width = img.width * scale;
+  canvas.height = img.height * scale;
+  const ctx = canvas.getContext("2d");
 
-        // 1. Scale up for better DPI (Tesseract likes 300 DPI)
-        // We double the dimensions to help with small webcam text
-        canvas.width = img.width * 2;
-        canvas.height = img.height * 2;
+  // Draw and upscale image
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-        // 2. Apply filters via Canvas context
-        ctx.filter = "grayscale(100%) contrast(150%) brightness(110%)";
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  // Get image data
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
 
-        // 3. Optional: Manual Binarization (Black/White only)
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const data = imageData.data;
-        for (let i = 0; i < data.length; i += 4) {
-          const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-          const threshold = 120; // Adjust based on lighting
-          const val = avg > threshold ? 255 : 0;
-          data[i] = data[i + 1] = data[i + 2] = val;
-        }
-        ctx.putImageData(imageData, 0, 0);
+  // Convert to grayscale and apply threshold
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
 
-        resolve(canvas.toDataURL("image/jpeg", 1.0));
-      };
-      img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  });
+    // Grayscale
+    const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+
+    // Threshold (binarization)
+    const value = gray > 150 ? 255 : 0;
+    data[i] = data[i + 1] = data[i + 2] = value;
+  }
+
+  ctx.putImageData(imageData, 0, 0);
+  return canvas;
 };
 
 /**
- * Extract text with enhanced preprocessing for live photos
+ * Extract text from an image or canvas using Tesseract.js
+ * Supports live-captured images (from <video> or canvas)
+ * @param {File | HTMLImageElement | HTMLCanvasElement} input 
+ * @returns {Promise<string>}
  */
-export const extractTextFromImage = async (file) => {
-  // Preprocess the file first
-  const processedImage = await preprocessImage(file);
+export const extractTextFromImage = async (input) => {
+  let canvas;
 
-  const { data } = await Tesseract.recognize(processedImage, "eng", {
-    // These parameters are crucial for low-res webcam captures
-    workerParams: {
-      tessedit_char_whitelist: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,-/', // Limit characters if possible for speed
-    },
-    // Page Segmentation Mode 6: Assume a single uniform block of text.
-    // Use 3 for fully automatic layout.
-    initialOptions: {
-      user_defined_dpi: '300',
-    }
+  // If input is a File, create image first
+  if (input instanceof File) {
+    const img = new Image();
+    img.src = URL.createObjectURL(input);
+
+    await new Promise((resolve) => {
+      img.onload = resolve;
+    });
+
+    canvas = preprocessImage(img);
+  } else if (input instanceof HTMLImageElement || input instanceof HTMLCanvasElement) {
+    canvas = preprocessImage(input);
+  } else {
+    throw new Error("Unsupported input type. Use File, Image, or Canvas.");
+  }
+
+  // Use Tesseract on the preprocessed canvas
+  const { data } = await Tesseract.recognize(canvas, "eng", {
+    // logger: (m) => console.log(m), // for progress logging
+    tessedit_char_whitelist: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+    psm: 6, // assumes a block of text
   });
 
   return data.text;

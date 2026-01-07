@@ -354,6 +354,7 @@ const handleRawText = async (rawText) => {
 	const data = await extractDataWithAI(rawText);
 	handleAIDataExtracted(data);
 	setLoading(false);
+	alert("data filled");
 }
 
   const handleAIDataExtracted = (data) => {

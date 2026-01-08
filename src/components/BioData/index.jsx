@@ -357,6 +357,19 @@ const handleRawText = async (rawText) => {
 	alert("data filled");
 }
 
+const handleClipboardData = async() => {
+	setLoading(true);
+	try {
+		const copiedText = await navigator.clipboard.readText();
+		handleAIDataExtracted(copiedText);
+		setLoading(false);
+		alert("data filled");
+	} catch (err) {
+		alert("can't read text");
+		}
+}
+}
+
   const handleAIDataExtracted = (data) => {
     if (!data || data.length === 0) return;
 
@@ -483,6 +496,7 @@ const handleRawText = async (rawText) => {
 						className="w-[80px] sm:w-[300px] h-[80px] sm:h-[120px] p-2 text-xs border rounded-md placeholder:text-gray-500"
 						placeholder="raw text"
 					/>
+					<div>
 					<button type="button" onClick={ (e) =>
 					handleRawText(rawText)
 					}
@@ -490,6 +504,14 @@ const handleRawText = async (rawText) => {
 					>
 						fill
 					</button>
+					<button type="button" onClick={ (e) =>
+					handleClipboardData()
+					}
+					className="mx px-2 py-2 bg-blue/80 text-xs text-white rounded-md hover:bg-black"
+					>
+						clipboardData
+					</button>
+					</div>
 				</div>
                 </div>
                 <form onSubmit={handlePdf}>

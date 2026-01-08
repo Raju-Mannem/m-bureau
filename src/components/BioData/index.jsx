@@ -354,6 +354,7 @@ const handleRawText = async (rawText) => {
 	const data = await extractDataWithAI(rawText);
 	handleAIDataExtracted(data);
 	setLoading(false);
+	setRawText("");
 	alert("data filled");
 }
 
@@ -361,13 +362,21 @@ const handleClipboardData = async() => {
 	setLoading(true);
 	try {
 		const copiedText = await navigator.clipboard.readText();
-		handleAIDataExtracted(copiedText);
+		const lines = copiedText.split('\n').filter(line => line.trim() !== "");
+		const formattedData = lines.map(line => {
+            const [label, value] = line.includes(':') 
+                ? line.split(':').map(s => s.trim()) 
+                : ["Field", line.trim()];
+
+            return { label, value };
+        });
+		handleAIDataExtracted(formattedData);
 		setLoading(false);
 		alert("data filled");
 	} catch (err) {
-		alert("can't read text");
-		}
-}
+		setLoading(false);
+		alert("can't read text"+err.message);
+	}
 }
 
   const handleAIDataExtracted = (data) => {
@@ -432,7 +441,7 @@ const handleClipboardData = async() => {
         }
 
     } catch (error) {
-        console.error("Save Error:", error);
+        // console.error("Save Error:", error);
         alert("Failed to save BioData.");
     }
   };
@@ -496,20 +505,20 @@ const handleClipboardData = async() => {
 						className="w-[80px] sm:w-[300px] h-[80px] sm:h-[120px] p-2 text-xs border rounded-md placeholder:text-gray-500"
 						placeholder="raw text"
 					/>
-					<div>
+					<div className="w-full flex justify-center items-center gap-4">
 					<button type="button" onClick={ (e) =>
 					handleRawText(rawText)
 					}
-					className="px-2 py-2 bg-black/80 text-xs text-white rounded-md hover:bg-black"
+					className="px-2 py-2 bg-black/60 text-xs text-white rounded-md hover:bg-black"
 					>
 						fill
 					</button>
 					<button type="button" onClick={ (e) =>
 					handleClipboardData()
 					}
-					className="mx px-2 py-2 bg-blue/80 text-xs text-white rounded-md hover:bg-black"
+					className="mx px-2 py-2 bg-blue-500/80 text-xs text-white rounded-md hover:bg-blue-800"
 					>
-						clipboardData
+						clipboard
 					</button>
 					</div>
 				</div>
